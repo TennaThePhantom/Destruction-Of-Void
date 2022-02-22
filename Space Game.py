@@ -9,7 +9,7 @@ import sys
 
 pygame.init()
 
-screen = pygame.display.set_mode((1500, 800))
+screen = pygame.display.set_mode((1000, 800))
 
 
 start_game = True
