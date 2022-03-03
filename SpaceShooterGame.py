@@ -1,9 +1,12 @@
+import imp
 import pygame
-from pygame.locals import *
 import random
 import time
 import sys
 import os
+from pygame.locals import *
+from Ships_Guns import *
+
 
 
 WHITE = (255, 255, 255)
@@ -59,8 +62,5 @@ def StartGame():
 
         SCREEN.blit(lives_label, (10, 10))
         SCREEN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
-
-
-
 
 
