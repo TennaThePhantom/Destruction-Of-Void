@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import * 
-from Space import *
 from Enimies import *
+from SpaceGameVariabies import *
 
 
 class Laser:

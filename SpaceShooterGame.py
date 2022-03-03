@@ -1,4 +1,3 @@
-import imp
 import pygame
 import random
 import time
@@ -6,22 +5,25 @@ import sys
 import os
 from pygame.locals import *
 from Ships_Guns import *
+from SpaceGameVariabies import *
 
 
+player = Player(300, 650)
 
-WHITE = (255, 255, 255)
-
-pygame.font.init()
-
-WIDTH = 1000
-HEIGHT = 800
-
-SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
-TITLE = pygame.display.set_caption("Destruction-Of-Void")
-ICON = pygame.display.set_icon(pygame.image.load(os.path.join("Images", "void.jpg")))
-
-BG = pygame.transform.scale(pygame.image.load(os.path.join("Images", "space_background.jpg" )), (WIDTH, HEIGHT))
-
+def player_controls():
+    global player
+    movement = 5
+    controls = pygame.key.get_pressed()
+    if controls[pygame.K_LEFT] and player.x - movement > 0 or controls[pygame.K_a] and player.x - movement > 0: 
+        player.x -= movement # left and blocks me from going off the screen
+    if controls[pygame.K_RIGHT] and player.x + movement + player.get_width() < WIDTH or controls[pygame.K_d] and player.x + movement + player.get_width() < WIDTH:
+        player.x += movement # right and and blocks me from going off the screen
+    if controls[pygame.K_UP] and player.y - movement > 0 or controls[pygame.K_w] and player.y - movement > 0:
+        player.y -= movement # up and and blocks me from going off the screen
+    if controls[pygame.K_DOWN] and player.y + movement + player.get_height() + 20 < HEIGHT or controls[pygame.K_s] and player.y + movement + player.get_height() + 20 < HEIGHT :
+        player.y += movement # down and and blocks me from going off the screen
+    if controls[pygame.K_SPACE]:
+        player.shoot()
 
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 70)
@@ -39,16 +41,17 @@ def main_menu():
     pygame.quit()
 
 def StartGame():
+    global player
     Start = True
     FPS = 60
     level = 0
     lives = 3
-    movement = 5
     Guns_movement = 4
 
     font = pygame.font.SysFont("comicsans", 50)
+    game_over_font = pygame.font.SysFont("Comicsans", 60)
     
-    wave_length = 5
+    wave_length = 9
     Clock = pygame.time.Clock()
 
     game_over = False
@@ -63,4 +66,30 @@ def StartGame():
         SCREEN.blit(lives_label, (10, 10))
         SCREEN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
 
+        player.draw(SCREEN)
 
+
+        if game_over == True:
+            game_over_text = game_over_font.render("You Lost!!", 1, (255, 255, 255))
+            SCREEN.blit(game_over_text, (WIDTH / 2 - level_label.get_width() / 2, 350))
+        
+        
+        pygame.display.update()
+
+
+
+    while Start == True:
+        Clock.tick(FPS)
+        redraw_window()
+
+        for window in pygame.event.get():
+            if window.type == pygame.QUIT:
+                Start = False
+        
+        player_controls()
+
+
+
+
+
+main_menu()
