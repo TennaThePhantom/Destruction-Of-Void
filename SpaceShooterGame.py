@@ -6,6 +6,8 @@ import os
 from pygame.locals import *
 from Ships_Guns import *
 from SpaceGameVariabies import *
+from Levels import *
+
 
 
 player = Player(300, 650)
@@ -42,10 +44,10 @@ def main_menu():
 
 def StartGame():
     global player
+    global lives
+    global level
     Start = True
     FPS = 60
-    level = 0
-    lives = 3
     Guns_movement = 4
 
     font = pygame.font.SysFont("comicsans", 50)
@@ -68,12 +70,11 @@ def StartGame():
 
         player.draw(SCREEN)
 
-
         if game_over == True:
             game_over_text = game_over_font.render("You Lost!!", 1, (255, 255, 255))
             SCREEN.blit(game_over_text, (WIDTH / 2 - level_label.get_width() / 2, 350))
         
-        
+
         pygame.display.update()
 
 

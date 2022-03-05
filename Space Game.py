@@ -158,8 +158,8 @@ def collide(object1, object2):
 
 
 def StartGame():
+    global FPS
     Start = True
-    FPS = 60
     level = 0
     lives = 3
     movement = 5 
