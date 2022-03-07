@@ -2,6 +2,7 @@ import pygame
 import sys
 import os
 from pygame.locals import *
+from Ships_Guns import *
 
 WHITE = (255, 255, 255)
 
@@ -13,8 +14,12 @@ lives = 3
 level = 0
 money = 0
 FPS = 60
-
 End_Game = False
+Guns_movement = 3
+enemies = []
+
+
+
 
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 TITLE = pygame.display.set_caption("Destruction-Of-Void")

@@ -10,10 +10,11 @@ from Levels import *
 
 
 
-player = Player(300, 650)
 
 def player_controls():
     global player
+    global Guns_movement
+    global enemies
     movement = 5
     controls = pygame.key.get_pressed()
     if controls[pygame.K_LEFT] and player.x - movement > 0 or controls[pygame.K_a] and player.x - movement > 0: 
@@ -26,6 +27,8 @@ def player_controls():
         player.y += movement # down and and blocks me from going off the screen
     if controls[pygame.K_SPACE]:
         player.shoot()
+
+    player.move_lasers(-Guns_movement, enemies)
 
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 70)
@@ -46,14 +49,13 @@ def StartGame():
     global player
     global lives
     global level
+    global FPS
+    global enemies
     Start = True
-    FPS = 60
-    Guns_movement = 4
 
     font = pygame.font.SysFont("comicsans", 50)
     game_over_font = pygame.font.SysFont("Comicsans", 60)
     
-    wave_length = 9
     Clock = pygame.time.Clock()
 
     game_over = False
@@ -68,25 +70,44 @@ def StartGame():
         SCREEN.blit(lives_label, (10, 10))
         SCREEN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
 
+        for enemy in enemies:
+            enemy.draw(SCREEN)    
+
         player.draw(SCREEN)
+
+
 
         if game_over == True:
             game_over_text = game_over_font.render("You Lost!!", 1, (255, 255, 255))
             SCREEN.blit(game_over_text, (WIDTH / 2 - level_label.get_width() / 2, 350))
-        
+
 
         pygame.display.update()
 
 
 
+
     while Start == True:
         Clock.tick(FPS)
-        redraw_window()
+        redraw_window() 
+
+        if lives <= 0 or player.health <= 0:
+            game_over = True
+            lost_count += 1
+
+
+        if game_over == True:
+            if lost_count > FPS * 3:
+                Start = False
+            else:
+                continue
+
 
         for window in pygame.event.get():
             if window.type == pygame.QUIT:
                 Start = False
-        
+
+        level1()
         player_controls()
 
 
