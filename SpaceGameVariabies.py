@@ -17,6 +17,7 @@ FPS = 60
 End_Game = False
 Guns_movement = 3
 enemies = []
+Start = True
 
 
 

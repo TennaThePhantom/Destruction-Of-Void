@@ -1,7 +1,10 @@
 import pygame
 from pygame.locals import * 
 from Enimies import *
+from SpaceGameVariabies import *
 
+HEIGHT = 800
+WIDTH = 1000
 
 class Laser:
     def __init__(self, x, y, img):
@@ -128,4 +131,3 @@ def collide(object1, object2):
 
 
 
-player = Player(300, 650)

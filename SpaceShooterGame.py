@@ -1,13 +1,10 @@
 import pygame
 import random
 import time
-import sys
-import os
 from pygame.locals import *
-from Ships_Guns import *
 from SpaceGameVariabies import *
+from UserSpaceShip import *
 from Levels import *
-
 
 
 
@@ -50,16 +47,13 @@ def StartGame():
     global lives
     global level
     global FPS
-    global enemies
-    Start = True
+    global Start
 
     font = pygame.font.SysFont("comicsans", 50)
     game_over_font = pygame.font.SysFont("Comicsans", 60)
     
     Clock = pygame.time.Clock()
-
     game_over = False
-    lost_counter = 0
 
     def redraw_window():
         SCREEN.blit(BG, (0, 0))
@@ -70,12 +64,11 @@ def StartGame():
         SCREEN.blit(lives_label, (10, 10))
         SCREEN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
 
-        for enemy in enemies:
-            enemy.draw(SCREEN)    
-
         player.draw(SCREEN)
 
-
+        for enemy in enemies:
+            enemy.draw(SCREEN)
+        
 
         if game_over == True:
             game_over_text = game_over_font.render("You Lost!!", 1, (255, 255, 255))
@@ -83,9 +76,6 @@ def StartGame():
 
 
         pygame.display.update()
-
-
-
 
     while Start == True:
         Clock.tick(FPS)
@@ -107,8 +97,10 @@ def StartGame():
             if window.type == pygame.QUIT:
                 Start = False
 
-        level1()
         player_controls()
+        level1()
+    
+    pygame.display.update()
 
 
 
