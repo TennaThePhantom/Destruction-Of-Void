@@ -11,7 +11,7 @@ pygame.font.init()
 
 
 WIDTH = 1000
-HEIGHT = 800
+HEIGHT = 750
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 TITLE = pygame.display.set_caption("Destruction-Of-Void")
 ICON = pygame.display.set_icon(pygame.image.load(os.path.join("Images", "void.jpg")))
@@ -225,7 +225,7 @@ def StartGame():
 
         if len(enemies) == 0:
             level += 1
-            wave_length += 9
+            wave_length += 3
             for enemy_amount in range(wave_length):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1200, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3"]))
                 enemies.append(enemy)
@@ -259,7 +259,6 @@ def StartGame():
                 player.health -= 10
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
-                lives -= 1
                 enemies.remove(enemy)
 
         player.move_lasers(-laser_movement, enemies)

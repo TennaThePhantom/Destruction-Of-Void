@@ -10,8 +10,8 @@ pygame.font.init()
 
 
 def player_controls():
-    global Guns_movement
     global enemies
+    global Guns_movement
     movement = 5
     controls = pygame.key.get_pressed()
     if controls[pygame.K_LEFT] and player.x - movement > 0 or controls[pygame.K_a] and player.x - movement > 0: 
@@ -28,17 +28,18 @@ def player_controls():
     player.move_lasers(-Guns_movement, enemies)
 
 def StartGame():
-    global lives
+    global enemies
     global level
-    global game_over
+    game_over = False
+    lives = 3
     start_game = True
-    movement = 5
-    Guns_movement = 4
+    lost_count = 0
+
+
+    Clock = pygame.time.Clock()
     def redraw_window():
         font = pygame.font.SysFont("comicsans", 50)
         game_over_font = pygame.font.SysFont("Comicsans", 60)
-
-        game_over = False
 
         SCREEN.blit(BG, (0, 0))
 
@@ -60,11 +61,13 @@ def StartGame():
         pygame.display.update()
     
     while start_game == True:
+        Clock.tick(FPS)
+        redraw_window()
+
         for window in pygame.event.get():
             if window.type == pygame.QUIT:
                 start_game = False
-        fps_counter()
-        redraw_window()
+            
         player_controls()
         if lives <= 0 or player.health <= 0:
             game_over = True
@@ -75,9 +78,10 @@ def StartGame():
                 start_game = False
             else:
                 continue
-        
+        if len(enemies) == 0:
+            level += 1
         level1()
-
+        pygame.display.update()
 
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 70)
