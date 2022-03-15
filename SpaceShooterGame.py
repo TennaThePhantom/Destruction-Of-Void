@@ -78,10 +78,19 @@ def StartGame():
                 start_game = False
             else:
                 continue
+        pygame.display.update()
+
         if len(enemies) == 0:
             level += 1
-        level1()
-        pygame.display.update()
+        if level == 1:
+            level1(level)
+        if level == 2:
+            level2(level)
+        if level == 3:
+            level3(level)
+        if level == 4:
+            level4(level)
+    
 
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 70)
