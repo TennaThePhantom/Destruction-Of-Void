@@ -79,6 +79,7 @@ def StartGame():
             else:
                 continue
         pygame.display.update()
+        boss = False
 
         if len(enemies) == 0:
             level += 1
@@ -90,6 +91,8 @@ def StartGame():
             level3(level)
         if level == 4:
             level4(level)
+        if level == 5:
+            level5(level)
     
 
 def main_menu():

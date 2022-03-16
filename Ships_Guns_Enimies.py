@@ -91,7 +91,7 @@ class Ship:
             self.laser_countdown += 1
 
 class Player(Ship):
-    def __init__(self, x, y, health=100):
+    def __init__(self, x, y, health=600):
         super().__init__(x, y, health)
         self.ship_img = USER_SPACE_SHIP
         self.laser_img = YELLOW_LASER
