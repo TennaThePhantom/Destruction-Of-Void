@@ -29,12 +29,12 @@ def player_controls():
 
 def StartGame():
     global enemies
-    global level
     game_over = False
     lives = 3
     start_game = True
     lost_count = 0
-
+    FPS = 60
+    level = 3
 
     Clock = pygame.time.Clock()
     def redraw_window():
@@ -79,16 +79,15 @@ def StartGame():
             else:
                 continue
         pygame.display.update()
-        boss = False
 
         if len(enemies) == 0:
             level += 1
-        if level == 1:
-            level1(level)
-        if level == 2:
-            level2(level)
-        if level == 3:
-            level3(level)
+        #if level == 1:
+        #    level1(level)
+        #if level == 2:
+        #    level2(level)
+        #if level == 3:
+        #    level3(level)
         if level == 4:
             level4(level)
         if level == 5:
