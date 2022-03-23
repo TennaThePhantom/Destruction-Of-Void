@@ -34,7 +34,7 @@ def StartGame():
     start_game = True
     lost_count = 0
     FPS = 60
-    level = 3
+    level = 0
 
     Clock = pygame.time.Clock()
     def redraw_window():
@@ -82,12 +82,12 @@ def StartGame():
 
         if len(enemies) == 0:
             level += 1
-        #if level == 1:
-        #    level1(level)
-        #if level == 2:
-        #    level2(level)
-        #if level == 3:
-        #    level3(level)
+        if level == 1:
+            level1(level)
+        if level == 2:
+            level2(level)
+        if level == 3:
+            level3(level)
         if level == 4:
             level4(level)
         if level == 5:
