@@ -7,19 +7,6 @@ from SpaceGameVariabies import *
 HEIGHT = 800
 WIDTH = 1000
 
-ENEMY_SPACE_SHIP1 = pygame.image.load(os.path.join("Images", "Enemies", "enemy_ship_1.png" ))
-ENEMY_SPACE_SHIP2 = pygame.image.load(os.path.join("Images","Enemies", "enemy_ship_2.png" ))
-ENEMY_SPACE_SHIP3 = pygame.image.load(os.path.join("Images", "Enemies", "enemy_ship_3.png" ))
-
-# player player
-USER_SPACE_SHIP = pygame.image.load(os.path.join("Images", "space_ship.png" ))
-
-
-RED_lASER = pygame.image.load(os.path.join("Images", "Guns", "laser_red.png" ))
-GREEN_LASER = pygame.image.load(os.path.join("Images", "Guns", "laser_green.png" ))
-BLUE_LASER = pygame.image.load(os.path.join("Images", "Guns", "laser_blue.png" ))
-YELLOW_LASER = pygame.image.load(os.path.join("Images", "Guns", "laser_yellow.png" ))
-
 
 
 class Laser:
@@ -42,6 +29,53 @@ class Laser:
 
     def collision(self, hit):
         return collide(self, hit)
+
+
+
+class Bosses:
+    
+    def __init__(self, x, y, health, damage, COOLDOWN):
+        self.x = x
+        self.y = y
+        self.health = health
+        self.damage = damage
+        self.COOLDOWN = COOLDOWN
+        self.laser_img = None
+        self.lasers = []
+        self.laser_cooldown = 0
+
+    def draw(self, window):
+        window.blit(self.ship_img,(self.x, self.y))
+        for laser in self.lasers:
+            laser.draw(window)
+    def move_lasers(self, movement, Object):
+
+        self.Laser_cooldown()
+        for laser in self.lasers:
+            laser.move(movement)
+            if laser.off_screen(HEIGHT):
+                self.lasers.remove(laser)
+            elif laser.collision(Object):
+                Object.health -= 10
+                self.lasers.remove(laser)
+    
+    def get_width(self):
+        return self.ship_img.get_width()
+
+    def get_height(self): 
+        return self.ship_img.get_height()
+
+    def shoot(self):
+        if self.laser_countdown == 0:
+            laser = Laser(self.x, self.y, self.laser_img)
+            self.lasers.append(laser)
+            self.laser_countdown = 1
+
+    def Laser_cooldown(self):
+        if self.laser_countdown >= self.COOLDOWN:
+            self.laser_countdown = 0
+        elif self.laser_countdown > 0:
+            self.laser_countdown += 1
 
 
 class Ship:
