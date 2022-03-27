@@ -34,7 +34,7 @@ def StartGame():
     start_game = True
     lost_count = 0
     FPS = 60
-    level = 0
+    level = 4
 
     Clock = pygame.time.Clock()
     def redraw_window():

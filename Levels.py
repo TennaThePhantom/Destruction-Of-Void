@@ -40,7 +40,7 @@ def level2(level):
     enemies_movement = 1.5
     enemies_guns_speed = 4
     if level == 2:
-        if len(enemies) == 0:
+        if len(enemies) == 0: 
             for enemy_amount in range(wave_length):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1200, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3"]))
                 enemies.append(enemy)
@@ -125,6 +125,8 @@ def level5(level):
             for enemy_amount in range(wave_length_2):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1700, -600), random.choice(["Enemy 1", "Enemy 2", "Enemy 3"]))
                 enemies.append(enemy)
+            Boss = boss1(random.randrange(50, WIDTH - 100), random.randrange(-3000, -2500), random.choice(["Boss"]) )
+            enemies.append(Boss)
 
         for enemy in enemies:
             enemy.move(enemies_movement)
