@@ -8,7 +8,6 @@ HEIGHT = 800
 WIDTH = 1000
 
 
-
 class Laser:
     def __init__(self, x, y, img):
         self.x = x
@@ -111,7 +110,10 @@ class Enemy(Ship):
     COLOR_MAP = {
             "Enemy 1": (ENEMY_SPACE_SHIP1, RED_lASER),
             "Enemy 2": (ENEMY_SPACE_SHIP2, BLUE_LASER),
-            "Enemy 3": (ENEMY_SPACE_SHIP3, GREEN_LASER)}
+            "Enemy 3": (ENEMY_SPACE_SHIP3, GREEN_LASER),
+            "Enemy 4": (ENEMY_SPACE_SHIP4, BLUE_LASER),
+            "Enemy 5": (ENEMY_SPACE_SHIP5, GREEN_LASER)
+            }
     def __init__(self, x, y, color, health=100):
         super().__init__(x, y, health)
         self.ship_img, self.laser_img = self.COLOR_MAP[color]

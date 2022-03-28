@@ -34,7 +34,7 @@ class Laser:
 
 class SpeicalEnemies1:
     COOLDOWN = 30
-    
+
     def __init__(self, x, y, health=100):
         self.x = x
         self.y = y
@@ -82,7 +82,8 @@ class SpeicalEnemies1:
 class Speical1(SpeicalEnemies1):
 
     COLOR_MAP = {
-            "Boss": (BOSS_SHIP1, RED_lASER),}
+            "Boss": (SPEICAL_SHIP1, RED_lASER),
+            "Boss2": (SPEICAL_SHIP2, RED_lASER)}
     def __init__(self, x, y, color, health=100):
         super().__init__(x, y, health)
         self.ship_img, self.laser_img = self.COLOR_MAP[color]
@@ -95,4 +96,4 @@ class Speical1(SpeicalEnemies1):
         if self.laser_countdown == 0:
             laser = Laser(self.x - 20, self.y, self.laser_img)
             self.lasers.append(laser)
-            self.laser_countdown = 
+            self.laser_countdown = 1

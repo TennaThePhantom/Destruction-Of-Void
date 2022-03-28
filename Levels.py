@@ -121,13 +121,15 @@ def level5(level):
     if level == 5:
         if len(enemies) == 0:
             for enemy_amount in range(wave_length_1):
-                enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1200, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3"]))
+                enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1200, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5" ]))
                 enemies.append(enemy)
             for enemy_amount in range(wave_length_2):
-                enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1700, -600), random.choice(["Enemy 1", "Enemy 2", "Enemy 3"]))
+                enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1700, -600), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5"]))
                 enemies.append(enemy)
-            Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-3000, -2500), random.choice(["Boss"]) )
+            Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-1200, -600), random.choice(["Boss"]) )
             enemies.append(Speical_Enemy)
+            Speical_Enemy2 = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-1200, -600), random.choice(["Boss2"]) )
+            enemies.append(Speical_Enemy2)
 
         for enemy in enemies:
             enemy.move(enemies_movement)
