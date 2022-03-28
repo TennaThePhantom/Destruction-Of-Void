@@ -7,6 +7,7 @@ from Enimies import *
 from SpaceGameVariabies import *
 from Ships_Guns_Enimies import *
 from UserSpaceShip import *
+from Special_enimies import *
 
 def level1(level):
     global enemies
@@ -125,8 +126,8 @@ def level5(level):
             for enemy_amount in range(wave_length_2):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1700, -600), random.choice(["Enemy 1", "Enemy 2", "Enemy 3"]))
                 enemies.append(enemy)
-            Boss = boss1(random.randrange(50, WIDTH - 100), random.randrange(-3000, -2500), random.choice(["Boss"]) )
-            enemies.append(Boss)
+            Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-3000, -2500), random.choice(["Boss"]) )
+            enemies.append(Speical_Enemy)
 
         for enemy in enemies:
             enemy.move(enemies_movement)
