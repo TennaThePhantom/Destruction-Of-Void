@@ -25,3 +25,10 @@ YELLOW_LASER = pygame.image.load(os.path.join("Images", "Guns", "laser_yellow.pn
 SPEICAL_SHIP1 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy.png" ))
 SPEICAL_SHIP2 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy2.png" ))
 SPEICAL_SHIP3 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy3.png" ))
+
+
+
+
+
+MEGA_ENEMY1 = pygame.image.load(os.path.join("Images", "Enemies", "Mega_enemy.png" ))
+MEGA_ENEMY2 = pygame.image.load(os.path.join("Images", "Enemies", "Mega_enemy2.png "))
