@@ -108,7 +108,7 @@ class Player(Ship):
 
 class Enemy(Ship):
     COLOR_MAP = {
-            "Enemy 1": (ENEMY_SPACE_SHIP1, RED_lASER),
+            "Enemy 1": (ENEMY_SPACE_SHIP8, RED_lASER),
             "Enemy 2": (ENEMY_SPACE_SHIP2, BLUE_LASER),
             "Enemy 3": (ENEMY_SPACE_SHIP3, GREEN_LASER),
             "Enemy 4": (ENEMY_SPACE_SHIP4, BLUE_LASER),

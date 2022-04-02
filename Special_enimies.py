@@ -82,8 +82,8 @@ class SpeicalEnemies1:
 class Speical1(SpeicalEnemies1):
 
     COLOR_MAP = {
-            "Speical_Enemy": (MEGA_ENEMY2, RED_lASER),
-            "Speical_Enemy2": (SPEICAL_SHIP2, RED_lASER),
+            "Speical_Enemy": (SPEICAL_SHIP7, RED_lASER),
+            "Speical_Enemy2": (SPEICAL_SHIP6, RED_lASER),
             "Speical_Enemy3": (SPEICAL_SHIP3, RED_lASER)
             }
     def __init__(self, x, y, color, health=100):

@@ -51,6 +51,7 @@ def StartGame():
 
         player.draw(SCREEN)
 
+
         for enemy in enemies:
             enemy.draw(SCREEN)
 

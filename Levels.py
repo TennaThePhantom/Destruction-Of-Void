@@ -126,6 +126,8 @@ def level5(level):
             for enemy_amount in range(wave_length_2):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1700, -600), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5"]))
                 enemies.append(enemy)
+            Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-1200, -600), random.choice(["Speical_Enemy2"]))
+            enemies.append(Speical_Enemy)
             Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-1200, -600), random.choice(["Speical_Enemy"]))
             enemies.append(Speical_Enemy)
         for enemy in enemies:
