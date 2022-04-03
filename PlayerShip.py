@@ -106,33 +106,10 @@ class Player(Ship):
         pygame.draw.rect(window, (0,255,0), (self.x, self.y + self.ship_img.get_height() + 10, self.ship_img.get_width() * (self.health/self.max_health), 10))
 
 
-class Enemy(Ship):
-    COLOR_MAP = {
-            "Enemy 1": (ENEMY_SPACE_SHIP8, RED_lASER),
-            "Enemy 2": (ENEMY_SPACE_SHIP2, BLUE_LASER),
-            "Enemy 3": (ENEMY_SPACE_SHIP3, GREEN_LASER),
-            "Enemy 4": (ENEMY_SPACE_SHIP4, BLUE_LASER),
-            "Enemy 5": (ENEMY_SPACE_SHIP5, GREEN_LASER)
-            }
-    def __init__(self, x, y, color, health=100):
-        super().__init__(x, y, health)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
-    
-    def move(self, movemoment):
-        self.y += movemoment
-
-    def shoot(self):
-        if self.laser_countdown == 0:
-            laser = Laser(self.x - 20, self.y, self.laser_img)
-            self.lasers.append(laser)
-            self.laser_countdown = 1
-
-
 def collide(object1, object2):
     offset_x = object2.x - object1.x
     offset_y = object2.y - object1.y
     return object1.mask.overlap(object2.mask, (offset_x, offset_y)) != None
 
 
-
+player = Player(300, 650)

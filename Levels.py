@@ -5,9 +5,11 @@ import os
 from pygame.locals import *
 from Enimies import *
 from SpaceGameVariabies import *
-from Ships_Guns_Enimies import *
-from UserSpaceShip import *
+from PlayerShip import *
+from Regular_enimies import *
 from Special_enimies import *
+from Big_enimies import *
+from Mega_enimies import * 
 
 def level1(level):
     global enemies

@@ -3,7 +3,6 @@ import random
 import time
 from pygame.locals import *
 from SpaceGameVariabies import *
-from UserSpaceShip import *
 from Levels import *
 
 pygame.font.init()
