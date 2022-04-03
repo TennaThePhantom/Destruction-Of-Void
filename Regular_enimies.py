@@ -72,7 +72,7 @@ class Ship:
             laser = Laser(self.x, self.y, self.laser_img)
             self.lasers.append(laser)
             self.laser_countdown = 1
-
+    
     def cooldown(self):
         if self.laser_countdown >= self.COOLDOWN:
             self.laser_countdown = 0
@@ -84,11 +84,14 @@ class Ship:
 
 class Enemy(Ship):
     COLOR_MAP = {
-            "Enemy 1": (ENEMY_SPACE_SHIP8, RED_lASER),
+            "Enemy 1": (ENEMY_SPACE_SHIP1, BLUE_LASER),
             "Enemy 2": (ENEMY_SPACE_SHIP2, BLUE_LASER),
-            "Enemy 3": (ENEMY_SPACE_SHIP3, GREEN_LASER),
-            "Enemy 4": (ENEMY_SPACE_SHIP4, BLUE_LASER),
-            "Enemy 5": (ENEMY_SPACE_SHIP5, GREEN_LASER)
+            "Enemy 3": (ENEMY_SPACE_SHIP3, BLUE_LASER),
+            "Enemy 4": (ENEMY_SPACE_SHIP4, BLUE_LASER),            
+            "Enemy 5": (ENEMY_SPACE_SHIP5, BLUE_LASER),
+            "Enemy 6": (ENEMY_SPACE_SHIP6, BLUE_LASER),
+            "Enemy 7": (ENEMY_SPACE_SHIP7, BLUE_LASER),
+            "Enemy 8": (ENEMY_SPACE_SHIP8, BLUE_LASER),
             }
     def __init__(self, x, y, color, health=100):
         super().__init__(x, y, health)
@@ -103,6 +106,7 @@ class Enemy(Ship):
             laser = Laser(self.x - 20, self.y, self.laser_img)
             self.lasers.append(laser)
             self.laser_countdown = 1
+
 
 
 def collide(object1, object2):

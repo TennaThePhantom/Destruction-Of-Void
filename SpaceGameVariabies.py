@@ -11,8 +11,6 @@ pygame.font.init()
 
 WIDTH = 1000
 HEIGHT = 750
-
-money = 0
 Guns_movement = 4
 game_over = False
 enemies = []
