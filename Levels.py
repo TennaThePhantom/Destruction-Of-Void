@@ -1,3 +1,4 @@
+import imp
 import pygame
 import random
 import time
@@ -10,6 +11,7 @@ from Regular_enimies import *
 from Special_enimies import *
 from Big_enimies import *
 from Mega_enimies import * 
+from Lasers_EnergyBalls import *
 
 def level1(level):
     global enemies
