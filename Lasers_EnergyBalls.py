@@ -16,4 +16,5 @@ SPARKING_ENERGY_BALL = pygame.image.load(os.path.join("Images", "Guns", "Sparkin
 DARKBLUE_LIGHT_LASER = pygame.image.load(os.path.join("Images", "Guns", "DarkBlue_light_Laser.png" ))
 GOLD_ENERGY_BALL = pygame.image.load(os.path.join("Images", "Guns", "Gold_energy_ball.png" ))
 BLUE_ENERGY_LASER = pygame.image.load(os.path.join("Images", "Guns", "Blue_energy_laser.png" ))
-
+PURPLE_FLAME_ENERGY_BALL = pygame.image.load(os.path.join("Images", "Guns", "Purple_Flame_Energy_Ball.png" ))
+BLUE_ENERGY_BALL = pygame.image.load(os.path.join("Images", "Guns", "Blue_energy_ball.png" ))

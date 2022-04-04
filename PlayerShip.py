@@ -81,7 +81,7 @@ class Player(Ship):
     def __init__(self, x, y, health=600):
         super().__init__(x, y, health)
         self.ship_img = USER_SPACE_SHIP
-        self.laser_img = BLUE_ENERGY_LASER
+        self.laser_img = YELLOW_LASER
         self.mask = pygame.mask.from_surface(self.ship_img) # collusion
         self.max_health = health 
 

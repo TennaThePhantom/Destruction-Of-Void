@@ -3,7 +3,6 @@ import sys
 import os
 from pygame.locals import *
 from PlayerShip import *
-from UserSpaceShip import *
 
 WHITE = (255, 255, 255)
 
