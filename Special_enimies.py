@@ -7,7 +7,7 @@ from Lasers_EnergyBalls import *
 
 
 HEIGHT = 800
-WIDTH = 1000
+WIDTH = 1200
 
 class Laser:
     def __init__(self, x, y, img):
@@ -56,7 +56,7 @@ class SpeicalEnemies1:
             if laser.off_screen(HEIGHT):
                 self.lasers.remove(laser)
             elif laser.collision(Object):
-                Object.health -= 40
+                Object.health -= 25
                 self.lasers.remove(laser)
 
 
@@ -82,9 +82,7 @@ class SpeicalEnemies1:
 class Speical1(SpeicalEnemies1):
 
     COLOR_MAP = {
-            "Speical_Enemy": (SPEICAL_SHIP7, RED_lASER),
-            "Speical_Enemy2": (SPEICAL_SHIP6, RED_lASER),
-            "Speical_Enemy3": (SPEICAL_SHIP3, RED_lASER)
+            "Speical_Enemy": (SPEICAL_SHIP1, RED_lASER),
             }
     def __init__(self, x, y, color, health=100):
         super().__init__(x, y, health)
@@ -96,6 +94,6 @@ class Speical1(SpeicalEnemies1):
 
     def shoot(self):
         if self.laser_countdown == 0:
-            laser = Laser(self.x - 20, self.y, self.laser_img)
+            laser = Laser(self.x, self.y + 35, self.laser_img)
             self.lasers.append(laser)
             self.laser_countdown = 1

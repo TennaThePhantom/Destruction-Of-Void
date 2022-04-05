@@ -11,7 +11,7 @@ pygame.font.init()
 def player_controls():
     global enemies
     global Guns_movement
-    movement = 5
+    global movement
     controls = pygame.key.get_pressed()
     if controls[pygame.K_LEFT] and player.x - movement > 0 or controls[pygame.K_a] and player.x - movement > 0: 
         player.x -= movement # left and blocks me from going off the screen
@@ -19,7 +19,7 @@ def player_controls():
         player.x += movement # right and and blocks me from going off the screen
     if controls[pygame.K_UP] and player.y - movement > 0 or controls[pygame.K_w] and player.y - movement > 0:
         player.y -= movement # up and and blocks me from going off the screen
-    if controls[pygame.K_DOWN] and player.y + movement + player.get_height() + 20 < HEIGHT or controls[pygame.K_s] and player.y + movement + player.get_height() + 20 < HEIGHT :
+    if controls[pygame.K_DOWN] and player.y + movement + player.get_height() + 75 < HEIGHT or controls[pygame.K_s] and player.y + movement + player.get_height() + 75 < HEIGHT :
         player.y += movement # down and and blocks me from going off the screen
     if controls[pygame.K_SPACE]:
         player.shoot()
@@ -92,6 +92,10 @@ def StartGame():
             level4(level)
         if level == 5:
             level5(level)
+        if level == 6:
+            level6(level)
+        if level == 7:
+            level7(level)
 
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 70)

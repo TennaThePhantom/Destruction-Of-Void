@@ -6,7 +6,7 @@ from SpaceGameVariabies import *
 from Lasers_EnergyBalls import *
 
 HEIGHT = 800
-WIDTH = 1000
+WIDTH = 1200
 
 
 class Laser:
@@ -78,7 +78,7 @@ class Ship:
             self.laser_countdown += 1
 
 class Player(Ship):
-    def __init__(self, x, y, health=600):
+    def __init__(self, x, y, health=250):
         super().__init__(x, y, health)
         self.ship_img = USER_SPACE_SHIP
         self.laser_img = YELLOW_LASER

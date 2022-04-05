@@ -8,11 +8,12 @@ WHITE = (255, 255, 255)
 
 pygame.font.init()
 
-WIDTH = 1000
+WIDTH = 1200
 HEIGHT = 750
 Guns_movement = 4
 game_over = False
 enemies = []
+movement = 5.5
 Clock = pygame.time.Clock()
 
 
