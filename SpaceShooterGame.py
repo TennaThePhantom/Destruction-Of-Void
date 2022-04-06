@@ -33,7 +33,7 @@ def StartGame():
     start_game = True
     lost_count = 0
     FPS = 60
-    level = 0
+    level = 7
 
     Clock = pygame.time.Clock()
     def redraw_window():
@@ -96,6 +96,8 @@ def StartGame():
             level6(level)
         if level == 7:
             level7(level)
+        if level == 8:
+            level8(level)
 
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 70)
