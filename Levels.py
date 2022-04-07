@@ -192,7 +192,7 @@ def level7(level):
                     enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-2400, -1500), random.choice(["Enemy 7", "Enemy 3"]))
                     enemies.append(enemy)
                 for speical_amount in range(2):
-                    Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-2200, -2000), random.choice(["Speical_Enemy"]))
+                    Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-2200, -2000), random.choice(["Special_Enemy"]))
                     enemies.append(Speical_Enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -215,14 +215,51 @@ def level8(level):
     if level == 8:    
         if len(enemies) == 0:
                 for enemy_amount in range(wave1_length):
-                    enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1400, -100), random.choice(["Enemy 7", "Enemy 6", "Enemy 4", "Enemy 2", ]))
+                    enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1400, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 6", "Enemy 5", ]))
                     enemies.append(enemy)
                 for enemy_amount in range(wave2_length):
-                    enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-2000, -1400), random.choice(["Enemy 7", "Enemy 3"]))
+                    enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1400), random.choice(["Enemy 8", "Enemy 4"]))
                     enemies.append(enemy)
                 for speical_amount in range(3):
-                    Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-1800, -1600), random.choice(["Speical_Enemy"]))
+                    Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-1800, -1600), random.choice(["Special_Enemy"]))
                     enemies.append(Speical_Enemy)
+        for enemy in enemies:
+            enemy.move(enemies_movement)
+            enemy.move_lasers(enemies_guns_speed, player)
+            if random.randrange(0, 120) == 1:
+                enemy.shoot()
+
+            if collide(enemy, player):
+                player.health -= 10
+                enemies.remove(enemy)
+            elif enemy.y + enemy.get_height() > HEIGHT:
+                enemies.remove(enemy)
+
+
+def level9(level):
+    global enemies
+    wave1_length = 8
+    wave2_length = 7
+    special_enemies = 3
+    special_enemie2 = 3
+
+    enemies_movement = 1.5
+    enemies_guns_speed = 4
+    if level == 9:    
+        if len(enemies) == 0:
+            for enemy_amount in range(wave1_length):
+                enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1400, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
+                enemies.append(enemy)
+            for enemy_amount in range(wave2_length):
+                enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1000), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
+                enemies.append(enemy)
+            for enemy_amount in range(special_enemies):
+                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-1700, -1500), random.choice(["Special_Enemy"]))
+                enemies.append(enemy)
+            for enemy_amount in range(special_enemie2):
+                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-1800, -1700), random.choice(["Special_Enemy"]))
+                enemies.append(enemy)
+
         for enemy in enemies:
             enemy.move(enemies_movement)
             enemy.move_lasers(enemies_guns_speed, player)

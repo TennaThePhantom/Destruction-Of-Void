@@ -79,10 +79,75 @@ class SpeicalEnemies1:
             self.laser_countdown += 1
 
 
+class SpeicalEnemies2:
+    COOLDOWN = 10
+    def __init__(self, x, y, health=100):
+        self.x = x
+        self.y = y
+        self.health = health
+        self.ship_img = None
+        self.laser_img = None
+        self.lasers = []
+        self.laser_countdown = 0
+
+    def draw(self, window):
+        window.blit(self.ship_img,(self.x, self.y))
+        for laser in self.lasers:
+            laser.draw(window)
+    
+    def move_lasers(self, movement, Object):
+        self.cooldown()
+        for laser in self.lasers:
+            laser.move(movement)
+            if laser.off_screen(HEIGHT):
+                self.lasers.remove(laser)
+            elif laser.collision(Object):
+                Object.health -= 20
+                self.lasers.remove(laser)
+
+
+    def get_width(self):
+        return self.ship_img.get_width()
+
+    def get_height(self): 
+        return self.ship_img.get_height()
+
+    def shoot(self):
+        if self.laser_countdown == 0:
+            laser = Laser(self.x, self.y, self.laser_img)
+            self.lasers.append(laser)
+            self.laser_countdown = 1
+
+    def cooldown(self):
+        if self.laser_countdown >= self.COOLDOWN:
+            self.laser_countdown = 0
+        elif self.laser_countdown > 0:
+            self.laser_countdown += 1
+
+
 class Speical1(SpeicalEnemies1):
 
     COLOR_MAP = {
-            "Speical_Enemy": (SPEICAL_SHIP1, RED_lASER),
+            "Special_Enemy": (SPEICAL_SHIP1, RED_lASER),
+            }
+    def __init__(self, x, y, color, health=100):
+        super().__init__(x, y, health)
+        self.ship_img, self.laser_img = self.COLOR_MAP[color]
+        self. mask = pygame.mask.from_surface(self.ship_img)
+    
+    def move(self, movemoment):
+        self.y += movemoment
+
+    def shoot(self):
+        if self.laser_countdown == 0:
+            laser = Laser(self.x, self.y + 35, self.laser_img)
+            self.lasers.append(laser)
+            self.laser_countdown = 1
+
+class Speical2(SpeicalEnemies2):
+
+    COLOR_MAP = {
+            "Special_Enemy": (SPEICAL_SHIP4, RED_lASER),
             }
     def __init__(self, x, y, color, health=100):
         super().__init__(x, y, health)
