@@ -22,7 +22,7 @@ def player_controls():
     if controls[pygame.K_DOWN] and player.y + movement + player.get_height() + 75 < HEIGHT or controls[pygame.K_s] and player.y + movement + player.get_height() + 75 < HEIGHT :
         player.y += movement # down and and blocks me from going off the screen
     if controls[pygame.K_SPACE]:
-        player.shoot()
+        player.shoot() 
 
     player.move_lasers(-Guns_movement, enemies)
 
@@ -33,7 +33,7 @@ def StartGame():
     start_game = True
     lost_count = 0
     FPS = 60
-    level = 9
+    level = 11
 
     Clock = pygame.time.Clock()
     def redraw_window():
@@ -102,6 +102,13 @@ def StartGame():
             level9(level)
         if level == 10:
             level10(level)
+        if level == 11:
+            level11(level)
+        if level == 12:
+            level12(level)
+
+
+
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 70)
     run_menu = True
