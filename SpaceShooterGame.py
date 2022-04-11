@@ -33,7 +33,7 @@ def StartGame():
     start_game = True
     lost_count = 0
     FPS = 60
-    level = 14
+    level = 17
 
     Clock = pygame.time.Clock()
     def redraw_window():
@@ -111,7 +111,19 @@ def StartGame():
         if level == 14:
             level14(level)
         if level == 15:
-            level15(level)        
+            level15(level) 
+        if level == 16:
+            level16(level)
+        if level == 17:
+            level17(level)
+        if level == 18:
+            level18(level)
+        if level == 19:
+            pass
+            level15(level)
+        if level == 20:
+            pass
+            level15(level)           
 
 
 
