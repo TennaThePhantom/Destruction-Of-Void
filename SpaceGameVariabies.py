@@ -1,5 +1,4 @@
 import pygame
-import sys
 import os
 from pygame.locals import *
 from PlayerShip import *
@@ -11,10 +10,8 @@ pygame.font.init()
 WIDTH = 1200
 HEIGHT = 750
 Guns_movement = 4
-game_over = False
 enemies = []
 movement = 5.5
-Clock = pygame.time.Clock()
 
 
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))

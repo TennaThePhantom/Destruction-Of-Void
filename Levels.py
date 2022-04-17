@@ -1,26 +1,26 @@
 import imp
 import pygame
 import random
-import time
-import os
 from pygame.locals import *
-from Enimies import *
+from Enemies import *
 from SpaceGameVariabies import *
 from PlayerShip import *
-from Regular_enimies import *
-from Special_enimies import *
-from Big_enimies import *
+from Regular_enemies import *
+from Special_enemies import *
+from Big_enemies import *
 from Mega_enimies import * 
 from Lasers_EnergyBalls import *
 
+
+
 def level1(level):
     global enemies
-    wave_length = 4
+    wave1 = 4
     enemies_movement = 1.2
     enemies_guns_speed = 3.3
     if level == 1:
         if len(enemies) == 0:
-            for enemy_amount in range(wave_length):
+            for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1200, -100), random.choice(["Enemy 1", "Enemy 2"]))
                 enemies.append(enemy)
         for enemy in enemies:
@@ -40,12 +40,12 @@ def level1(level):
 
 def level2(level):
     global enemies
-    wave_length = 6
+    wave1 = 6
     enemies_movement = 1.2
-    enemies_guns_speed = 4
+    enemies_guns_speed = 3.3
     if level == 2:
         if len(enemies) == 0: 
-            for enemy_amount in range(wave_length):
+            for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1200, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3"]))
                 enemies.append(enemy)
         for enemy in enemies:
@@ -65,12 +65,12 @@ def level2(level):
 
 def level3(level):
     global enemies
-    wave_length = 7
+    wave1 = 7
     enemies_movement = 1.2
-    enemies_guns_speed = 4
+    enemies_guns_speed = 3.3
     if level == 3:
         if len(enemies) == 0:
-            for enemy_amount in range(wave_length):
+            for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1200, -100), random.choice(["Enemy 2", "Enemy 4", "Enemy 5"]))
                 enemies.append(enemy)
         for enemy in enemies:
@@ -89,16 +89,16 @@ def level3(level):
 
 def level4(level):
     global enemies
-    wave_length_1 = 8
-    wave_length_2 = 4
+    wave1 = 8
+    wave2 = 4
     enemies_movement = 1.2
-    enemies_guns_speed = 4
+    enemies_guns_speed = 3.3
     if level == 4:
         if len(enemies) == 0:
-            for enemy_amount in range(wave_length_1):
+            for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1200, -100), random.choice(["Enemy 2", "Enemy 4"]))
                 enemies.append(enemy)    
-            for enemy_amount in range(wave_length_2):
+            for enemy_amount in range(wave2):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1800, -1000), random.choice(["Enemy 1", "Enemy 3", "Enemy 5"]))
                 enemies.append(enemy)  
         for enemy in enemies:
@@ -117,20 +117,20 @@ def level4(level):
 
 def level5(level):
     global enemies
-    wave_length_1 = 9
-    wave_length_2 = 3
+    wave1 = 9
+    wave2 = 3
     enemies_movement = 1.2
-    enemies_guns_speed = 4
+    enemies_guns_speed = 3.3
     if level == 5:
         if len(enemies) == 0:
-            for enemy_amount in range(wave_length_1):
+            for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1200, -100), random.choice(["Enemy 5", "Enemy 4"]))
                 enemies.append(enemy)
-            for enemy_amount in range(wave_length_2):
+            for enemy_amount in range(wave2):
                 enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1700, -900), random.choice(["Enemy 3", "Enemy 4"]))
                 enemies.append(enemy)
-            Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-1500, -1400), random.choice(["Special_Enemy"]), 100, 19)
-            enemies.append(Speical_Enemy)
+            Special_Enemy = Special1(random.randrange(50, WIDTH - 100), random.randrange(-1500, -1400), random.choice(["Special_Enemy"]))
+            enemies.append(Special_Enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
             enemy.move_lasers(enemies_guns_speed, player)
@@ -149,16 +149,16 @@ def level5(level):
 
 def level6(level):
     global enemies
-    wave1_length = 8
-    wave2_length = 5
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
+    wave1 = 8
+    wave2 = 5
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.5
     if level == 6:    
         if len(enemies) == 0:
-                for enemy_amount in range(wave1_length):
+                for enemy_amount in range(wave1):
                     enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1500, -100), random.choice(["Enemy 7", "Enemy 6", "Enemy 4", "Enemy 2", ]))
                     enemies.append(enemy)
-                for enemy_amount in range(wave2_length):
+                for enemy_amount in range(wave2):
                     enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1800, -1200), random.choice(["Enemy 7", "Enemy 3"]))
                     enemies.append(enemy)
         for enemy in enemies:
@@ -178,21 +178,22 @@ def level6(level):
 
 def level7(level):
     global enemies
-    wave1_length = 10
-    wave2_length = 7
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
+    wave1 = 10
+    wave2 = 7
+    specialwave = 2
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.5
     if level == 7:    
         if len(enemies) == 0:
-                for enemy_amount in range(wave1_length):
+                for enemy_amount in range(wave1):
                     enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1800, -100), random.choice(["Enemy 7", "Enemy 6", "Enemy 4", "Enemy 2", ]))
                     enemies.append(enemy)
-                for enemy_amount in range(wave2_length):
+                for enemy_amount in range(wave2):
                     enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-2400, -1500), random.choice(["Enemy 7", "Enemy 3"]))
                     enemies.append(enemy)
-                for speical_amount in range(2):
-                    Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-2200, -2000), random.choice(["Special_Enemy"]), 100, 22)
-                    enemies.append(Speical_Enemy)
+                for enemy_amount in range(specialwave):
+                    enemy = Special1(random.randrange(50, WIDTH - 100), random.randrange(-2200, -2000), random.choice(["Special_Enemy"]))
+                    enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
             enemy.move_lasers(enemies_guns_speed, player)
@@ -207,21 +208,22 @@ def level7(level):
 
 def level8(level):
     global enemies
-    wave1_length = 9
-    wave2_length = 7
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
+    wave1 = 9
+    wave2 = 7
+    specialwave = 3
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.5
     if level == 8:    
         if len(enemies) == 0:
-                for enemy_amount in range(wave1_length):
+                for enemy_amount in range(wave1):
                     enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1400, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 6", "Enemy 5", ]))
                     enemies.append(enemy)
-                for enemy_amount in range(wave2_length):
+                for enemy_amount in range(wave2):
                     enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1400), random.choice(["Enemy 8", "Enemy 4"]))
                     enemies.append(enemy)
-                for speical_amount in range(3):
-                    Speical_Enemy = Speical1(random.randrange(50, WIDTH - 100), random.randrange(-1800, -1600), random.choice(["Special_Enemy"]), 100, 22)
-                    enemies.append(Speical_Enemy)
+                for enemy_amount in range(specialwave):
+                    enemy = Special1(random.randrange(50, WIDTH - 100), random.randrange(-1800, -1600), random.choice(["Special_Enemy"]))
+                    enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
             enemy.move_lasers(enemies_guns_speed, player)
@@ -237,25 +239,22 @@ def level8(level):
 
 def level9(level):
     global enemies
-    wave1_length = 8
-    wave2_length = 7
-    special_enemies = 3
-    special_enemie2 = 3
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
+    wave1 = 8
+    wave2 = 7
+    specialwave = 3
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.5
     if level == 9:    
         if len(enemies) == 0:
-            for enemy_amount in range(wave1_length):
+            for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1400, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(wave2_length):
+            for enemy_amount in range(wave2):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1000), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(special_enemies):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-1800, -1500), random.choice(["Special_Enemy"]),100, 22)
-                enemies.append(enemy)
-            for enemy_amount in range(special_enemie2):
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1700), random.choice(["Special_Enemy"]), 100, 27)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-1800, -1500), random.choice(["Special_Enemy"]))
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1700), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
 
         for enemy in enemies:
@@ -273,23 +272,21 @@ def level9(level):
 
 def level10(level):
     global enemies
-    wave1_length = 10
-    special_enemies = 3
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
-    speical_enemy3 = 4
+    wave1 = 10
+    specialwave = 3
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.5
     if level == 10:    
         if len(enemies) == 0:
-            for enemy_amount in range(wave1_length):
+            for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1800, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(special_enemies):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-1600, -1200), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-1600, -1200), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-1800, -1200), random.choice(["Special_Enemy"]), 100, 19)
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-1800, -1200), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-            for enemy_amount in range(speical_enemy3):
-                enemy = Speical3(random.randrange(50, WIDTH - 150), random.randrange(-1400, -400), random.choice(["Special_Enemy"]), 100, 22)
+                enemy = Special3(random.randrange(50, WIDTH - 150), random.randrange(-1400, -400), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -306,25 +303,21 @@ def level10(level):
 
 def level11(level):
     global enemies
-    wave1_length = 15
-    wave2_length = 11
-    fast_wave = 7
-    special_enemy = 3
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
+    wave1 = 15
+    wave2 = 11
+    specialwave = 5
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.6
     if level == 11:    
         if len(enemies) == 0:
-            for enemy_amount in range(wave1_length):
+            for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1700, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(wave2_length):
+            for enemy_amount in range(wave2):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-2800, -1500), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(fast_wave):
-                enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1600), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
-                enemies.append(enemy)
-            for enemy_amount in range(special_enemy):
-                enemy = Speical4(random.randrange(50, WIDTH - 150), random.randrange(-2500, -2100), random.choice(["Special_Enemy"]),100, 40)
+            for enemy_amount in range(specialwave):
+                enemy = Special4(random.randrange(50, WIDTH - 150), random.randrange(-2500, -2100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -341,19 +334,19 @@ def level11(level):
 
 def level12(level):
     global enemies
-    wave1_length = 15
-    special_enemies = 4
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
+    wave1 = 15
+    specialwave = 4
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.6
     if level == 12:    
         if len(enemies) == 0:
-            for enemy_amount in range(wave1_length):
+            for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1700, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(special_enemies):
-                enemy = Speical5(random.randrange(50, WIDTH - 150), random.randrange(-1800, -100), random.choice(["Special_Enemy"]),100, 14)
+            for enemy_amount in range(specialwave):
+                enemy = Special5(random.randrange(50, WIDTH - 150), random.randrange(-1800, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical6(random.randrange(50, WIDTH - 150), random.randrange(-1800, -100), random.choice(["Special_Enemy"]),100, 65)
+                enemy = Special6(random.randrange(50, WIDTH - 150), random.randrange(-1800, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -370,27 +363,27 @@ def level12(level):
 
 def level13(level):
     global enemies
-    wave1_length = 11
-    wave2_length = 8
-    special_enemies = 5
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
+    wave1 = 11
+    wave2 = 8
+    specialwave = 5
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.6
     if level == 13:    
         if len(enemies) == 0:
-            for enemy_amount in range(wave1_length):
+            for enemy_amount in range(wave1):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-1700, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(wave2_length):
+            for enemy_amount in range(wave2):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1700, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(special_enemies):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-2000, -100), random.choice(["Special_Enemy"]),100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-2000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-2000, -900), random.choice(["Special_Enemy"]),100, 25)
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-2000, -900), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical3(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1400), random.choice(["Special_Enemy"]),100, 22)
+                enemy = Special3(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1400), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical7(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1200), random.choice(["Special_Enemy"]),100, 38)
+                enemy = Special7(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1200), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -407,17 +400,17 @@ def level13(level):
 
 def level14(level):
     global enemies
-    wave1_length = 18
-    wave2_length = 15
+    wave1 = 18
+    wave2 = 15
     wave3_length = 12
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.6
     if level == 14:    
         if len(enemies) == 0:
-            for enemy_amount in range(wave1_length):
+            for enemy_amount in range(wave1):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-1700, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(wave2_length):
+            for enemy_amount in range(wave2):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-2900, -1700), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
             for enemy_amount in range(wave3_length):
@@ -437,25 +430,25 @@ def level14(level):
     
 def level15(level):
     global enemies
-    special_enemies = 4
-    enemies_movement = 1.2
-    enemies_guns_speed = 4
+    specialwave = 4
+    enemies_movement = 1.3
+    enemies_guns_speed = 3.6
     if level == 15:    
         if len(enemies) == 0:
-            for enemy_amount in range(special_enemies):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 24)
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 28)
+                enemy = Special3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 17)
+                enemy = Special4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 50)
+                enemy = Special5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 29)
+                enemy = Special6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 32)
+                enemy = Special7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -475,10 +468,10 @@ def level16(level):
     wave1 = 16
     wave2 = 10
     wave3 = 9
-    speical_enemies = 1
-    big_enemy = 3
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    specialwave = 1
+    Bigwave = 3
+    enemies_movement = 1.4
+    enemies_guns_speed = 3.7
     if level == 16:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
@@ -490,17 +483,17 @@ def level16(level):
             for enemy_amount in range(wave3):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-4000, -3000), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(speical_enemies):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-            for enemy_amount in range(big_enemy): 
-                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1500), random.choice(["Big_Enemy"]), 100, 60)
+            for enemy_amount in range(Bigwave): 
+                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1500), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -520,10 +513,10 @@ def level17(level):
     global enemies
     wave1 = 25
     wave2 = 10
-    speical_enemies = 2
-    big_enemy = 3
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    specialwave = 2
+    Bigwave = 3
+    enemies_movement = 1.4
+    enemies_guns_speed = 3.7
     if level == 17:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
@@ -532,17 +525,17 @@ def level17(level):
             for enemy_amount in range(wave2):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-3600, -1800), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(speical_enemies):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-            for enemy_amount in range(big_enemy): 
-                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-500, -100), random.choice(["Big_Enemy"]), 100, 60)
+            for enemy_amount in range(Bigwave): 
+                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-500, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -565,9 +558,9 @@ def level18(level):
     wave2 = 10
     wave3 = 12
     wave4 = 26
-    big_enemy = 4
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    Bigwave = 4
+    enemies_movement = 1.4
+    enemies_guns_speed = 3.7
     if level == 18:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
@@ -582,8 +575,8 @@ def level18(level):
             for enemy_amount in range(wave4):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-4200, -1500), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(big_enemy): 
-                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3700, -2900), random.choice(["Big_Enemy"]), 100, 60)
+            for enemy_amount in range(Bigwave): 
+                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3700, -2900), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -604,9 +597,9 @@ def level19(level):
     global enemies
     wave1 = 14
     wave2 = 18
-    big_enemy = 3
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    Bigwave = 3
+    enemies_movement = 1.4
+    enemies_guns_speed = 3.7
     if level == 19:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
@@ -615,47 +608,10 @@ def level19(level):
             for enemy_amount in range(wave2):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-2900, -1300), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(big_enemy): 
-                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-2500, -1700), random.choice(["Big_Enemy"]), 100, 60)
+            for enemy_amount in range(Bigwave): 
+                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-2500, -1700), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-2800, -2300), random.choice(["Big_Enemy"]), 100, 60)
-                enemies.append(enemy)
-        for enemy in enemies:
-            enemy.move(enemies_movement)
-            enemy.move_lasers(enemies_guns_speed, player)
-            if random.randrange(0, 120) == 1:
-                enemy.shoot()
-
-            if collide(enemy, player):
-                player.health -= 20
-                enemies.remove(enemy)
-            elif enemy.y + enemy.get_height() > HEIGHT:
-                enemies.remove(enemy)
-
-
-
-
-
-
-def level19(level):
-    global enemies
-    wave1 = 14
-    wave2 = 18
-    big_enemy = 3
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
-    if level == 19:    
-        if len(enemies) == 0:
-            for enemy_amount in range(wave1):
-                enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-1700, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
-                enemies.append(enemy)
-            for enemy_amount in range(wave2):
-                enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-2900, -1300), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
-                enemies.append(enemy)
-            for enemy_amount in range(big_enemy): 
-                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-2500, -1700), random.choice(["Big_Enemy"]), 100, 60)
-                enemies.append(enemy)
-                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-2800, -2300), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-2800, -2300), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -674,28 +630,28 @@ def level19(level):
 def level20(level):
     global enemies
     wave1 = 10
-    speical_enemies = 5
-    big_enemy = 2
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    specialwave = 5
+    Bigwave = 2
+    enemies_movement = 1.4
+    enemies_guns_speed = 3.7
     if level == 20:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-1700, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(speical_enemies):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical4(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special4(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical5(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special5(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical6(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special6(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical7(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special7(random.randrange(50, WIDTH - 150), random.randrange(-4000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-            for enemy_amount in range(big_enemy): 
-                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-2800, -2300), random.choice(["Big_Enemy"]), 100, 60)
+            for enemy_amount in range(Bigwave): 
+                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-2800, -2300), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -715,8 +671,8 @@ def level21(level):
     wave1 = 40
     wave2 = 35
     Megawave = 3
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    enemies_movement = 1.6
+    enemies_guns_speed = 4.1
     if level == 21:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
@@ -748,25 +704,25 @@ def level22(level):
     wave1 = 30
     Megawave = 3
     Bigwave = 3
-    speicalwave = 5
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    specialwave = 5
+    enemies_movement = 1.6
+    enemies_guns_speed = 4.1
     if level == 22:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-4000, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(speicalwave):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Bigwave): 
-                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-1000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-1000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-4000, -2000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-4000, -2000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
                 enemy = Mega2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
@@ -791,27 +747,27 @@ def level23(level):
     wave1 = 30
     Megawave = 4
     Bigwave = 4
-    speicalwave = 3
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    specialwave = 3
+    enemies_movement = 1.6
+    enemies_guns_speed = 4.2
     if level == 23:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-4000, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(speicalwave):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Bigwave): 
-                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-1000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-1000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
                 enemy = Mega3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -2000), random.choice(["Mega_Enemy"]))
@@ -835,33 +791,33 @@ def level24(level):
     wave1 = 15
     Megawave = 3
     Bigwave = 3
-    speicalwave = 6
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    specialwave = 6
+    enemies_movement = 1.6
+    enemies_guns_speed = 4.2
     if level == 24:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
                 enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(speicalwave):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Bigwave): 
-                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-1000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-1000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
                 enemy = Mega4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
@@ -882,38 +838,38 @@ def level24(level):
 def level25(level):
     global enemies
     Bigwave = 4
-    speicalwave = 5
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    specialwave = 5
+    enemies_movement = 1.7
+    enemies_guns_speed = 4.4
     if level == 25:    
         if len(enemies) == 0:
-            for enemy_amount in range(speicalwave):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Bigwave): 
-                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             
         for enemy in enemies:
@@ -932,39 +888,39 @@ def level25(level):
 
 def level26(level):
     global enemies
-    speicalwave = 3
+    specialwave = 3
     Bigwave = 8
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    enemies_movement = 1.8
+    enemies_guns_speed = 4.7
     if level == 26:    
         if len(enemies) == 0:
-            for enemy_amount in range(speicalwave):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special7(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Bigwave): 
-                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             
         for enemy in enemies:
@@ -987,7 +943,7 @@ def level27(level):
     global enemies
     wave1 = 60
     wave2 = 40
-    enemies_movement = 1.5
+    enemies_movement = 1.8
     enemies_guns_speed = 4.6
     if level == 27:    
         if len(enemies) == 0:
@@ -1015,8 +971,8 @@ def level28(level):
     global enemies
     wave1 = 55
     Megawave = 4
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    enemies_movement = 1.9
+    enemies_guns_speed = 4.8
     if level == 28:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
@@ -1049,22 +1005,22 @@ def level29(level):
     global enemies
     Megawave = 10
     Bigwave = 15
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    enemies_movement = 1.9
+    enemies_guns_speed = 4.9
     if level == 29:    
         if len(enemies) == 0:
             for enemy_amount in range(Bigwave): 
-                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
                 enemy = Mega1(random.randrange(50, WIDTH - 50), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
@@ -1094,11 +1050,11 @@ def level30(level):
     global enemies
     Megawave = 5
     Bigwave = 8
-    speicalwave = 10
+    specialwave = 10
     wave1 = 60
     wave2 = 50
-    enemies_movement = 1.5
-    enemies_guns_speed = 4.6
+    enemies_movement = range(1, 2 + 1)
+    enemies_guns_speed = range(4, 5 + 1)
     if level == 30:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
@@ -1107,33 +1063,33 @@ def level30(level):
             for enemy_amount in range(wave2):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-10000, -4000), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
-            for enemy_amount in range(speicalwave):
-                enemy = Speical1(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]), 100, 20)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical2(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special2(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical3(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special3(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical4(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special4(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical5(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special5(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical6(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special6(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
-                enemy = Speical7(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]), 100, 20)
+                enemy = Special7(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Special_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Bigwave): 
-                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy2(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy4(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy5(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
-                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]), 100, 60)
+                enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
                 enemy = Mega1(random.randrange(50, WIDTH - 50), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))

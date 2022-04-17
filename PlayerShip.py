@@ -1,7 +1,7 @@
 import pygame
 import os
 from pygame.locals import * 
-from Enimies import *
+from Enemies import *
 from SpaceGameVariabies import *
 from Lasers_EnergyBalls import *
 

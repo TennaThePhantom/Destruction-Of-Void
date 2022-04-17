@@ -1,3 +1,4 @@
+from os import remove
 import pygame
 import random
 import time
@@ -6,6 +7,71 @@ from SpaceGameVariabies import *
 from Levels import *
 
 pygame.font.init()
+
+def gamelevels(level):
+
+    level1(level)
+
+    level2(level)
+
+    level3(level)
+
+    level4(level)
+
+    level5(level)
+
+    level6(level)
+
+    level7(level)
+
+    level8(level)
+
+    level9(level)
+
+    level10(level)
+
+    level11(level)
+
+    level12(level)
+
+    level13(level)
+
+    level14(level)
+
+    level15(level)
+
+    level16(level)
+
+    level17(level)
+
+    level18(level)
+
+    level19(level)
+
+    level20(level)
+
+    level21(level)
+
+    level22(level)
+
+    level23(level)
+
+    level24(level)
+
+    level25(level)
+
+    level26(level)
+
+    level27(level)
+
+    level28(level)
+
+    level29(level)
+
+    level30(level)
+
+
+
 
 
 def player_controls():
@@ -29,23 +95,23 @@ def player_controls():
 def StartGame():
     global enemies
     game_over = False
-    lives = 3
     start_game = True
     lost_count = 0
     FPS = 60
-    level = 24
+    level = 0
 
     Clock = pygame.time.Clock()
+
+
     def redraw_window():
+        SCREEN.blit(BG, (0, 0))
+
         font = pygame.font.SysFont("comicsans", 50)
         game_over_font = pygame.font.SysFont("Comicsans", 60)
 
-        SCREEN.blit(BG, (0, 0))
 
-        lives_label = font.render(f"Lives: {lives}", 1, (WHITE))
         level_label = font.render(f"Level: {level}", 1, (WHITE))
 
-        SCREEN.blit(lives_label, (10, 10))
         SCREEN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
 
         player.draw(SCREEN)
@@ -59,102 +125,69 @@ def StartGame():
             SCREEN.blit(game_over_text, (WIDTH / 2 - level_label.get_width() / 2, 350))
 
         pygame.display.update()
+
+
     
     while start_game == True:
         Clock.tick(FPS)
         redraw_window()
 
-        for window in pygame.event.get():
-            if window.type == pygame.QUIT:
-                start_game = False
-            
-        player_controls()
-        if lives <= 0 or player.health <= 0:
+        if player.health <= 0:
             game_over = True
             lost_count += 1
-    
+
         if game_over == True:
             if lost_count > FPS * 3:
                 start_game = False
             else:
                 continue
-        pygame.display.update()
-
+            
+        player_controls()
+    
         if len(enemies) == 0:
             level += 1
-        if level == 1:
-            level1(level)
-        if level == 2:
-            level2(level)
-        if level == 3:
-            level3(level)
-        if level == 4:
-            level4(level)
         if level == 5:
-            level5(level)
-        if level == 6:
-            level6(level)
-        if level == 7:
-            level7(level)
-        if level == 8:
-            level8(level)
-        if level == 9:
-            level9(level)
-        if level == 10:
-            level10(level)
-        if level == 11:
-            level11(level)
-        if level == 12:
-            level12(level)
-        if level == 13:
-            level13(level)
-        if level == 14:
-            level14(level)
-        if level == 15:
-            level15(level) 
-        if level == 16:
-            level16(level)
-        if level == 17:
-            level17(level)
-        if level == 18:
-            level18(level)
-        if level == 19:
-            level19(level)
-        if level == 20:
-            level20(level)  
-        if level == 21:
-            level21(level)  
-        if level == 22:
-            level22(level)  
-        if level == 23:
-            level23(level)  
-        if level == 24:
-            level24(level) 
-        if level == 25:
-            level25(level)
-        if level == 26:
-            level26(level)  
-        if level == 27:
-            level27(level)  
-        if level == 28:
-            level28(level)  
-        if level == 29:
-            level29(level)  
-        if level == 30:
-            level30(level) 
+            player.health = 600
+            
 
+        if level == 0:
+            for enemy in enemies:
+                enemies.remove(enemy)
+            for lasers in player.lasers:
+                player.lasers.remove(lasers)
+        gamelevels(level)
+
+        for window in pygame.event.get():
+            if window.type == pygame.QUIT:
+                start_game = False
+                level = 0
+    
 
 
 
 
 
 def main_menu():
-    title_font = pygame.font.SysFont("comicsans", 70)
+    title_font = pygame.font.SysFont("comicsans", 50)
+    goal_font =  pygame.font.SysFont("comicsans", 50)
+    waves_harder_font = pygame.font.SysFont("comicsans", 50)
+    ship_upgrades_font = pygame.font.SysFont("comicsans", 50)
     run_menu = True
     while run_menu == True:
         SCREEN.blit(BG, (0, 0))
-        title_text = title_font.render("Press the mouse to begin... ", 1, (255, 255, 255))
+        goal_text = goal_font.render("Your goal is to get to wave 30 without dieing", 1, WHITE)
+        SCREEN.blit(goal_text, (WIDTH / 2 - goal_text.get_width()/2, 50))
+
+        waves_text = waves_harder_font.render("as waves go up it will get harder", 1, WHITE)
+        SCREEN.blit(waves_text, (WIDTH / 2 - waves_text.get_width()/2, 150))
+
+        upgrades_text = ship_upgrades_font.render("Your ship will get upgrades as you play", 1, WHITE)
+        SCREEN.blit(upgrades_text, (WIDTH / 2 - upgrades_text.get_width()/2, 259))
+
+        title_text = title_font.render("Press the mouse to begin... ", 1, WHITE)
         SCREEN.blit(title_text, (WIDTH / 2 - title_text.get_width()/2, 350))
+
+
         pygame.display.update()
         for window in pygame.event.get():
             if window.type == pygame.QUIT:
@@ -162,7 +195,6 @@ def main_menu():
             if window.type == pygame.MOUSEBUTTONDOWN:
                 StartGame()
     pygame.quit()
-
 
 
 

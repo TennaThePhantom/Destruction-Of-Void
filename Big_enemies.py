@@ -1,13 +1,16 @@
 import pygame
 import os
 from pygame.locals import * 
-from Enimies import *
+from Enemies import *
 from SpaceGameVariabies import *
 from Lasers_EnergyBalls import *
 
 
+
+
 WIDTH = 1200
 HEIGHT = 750
+
 
 class Laser:
     def __init__(self, x, y, img):
@@ -77,7 +80,7 @@ class Laser3:
         return collide(self, hit)
 
 
-class SpeicalEnemies1:
+class BigEnemies1:
     COOLDOWN = 30
 
     def __init__(self, x, y, health=100, damage=10):
@@ -126,210 +129,9 @@ class SpeicalEnemies1:
 
 
 
-class SpeicalEnemies2:
-    COOLDOWN = 5
 
-    def __init__(self, x, y, health=100, damage=10):
-        self.x = x
-        self.y = y
-        self.health = health
-        self.ship_img = None
-        self.laser_img = None
-        self.lasers = []
-        self.laser_countdown = 0
-        self.damage = damage
-
-    def draw(self, window):
-        window.blit(self.ship_img,(self.x, self.y))
-        for laser in self.lasers:
-            laser.draw(window)
-    
-    def move_lasers(self, movement, Object):
-        self.cooldown()
-        for laser in self.lasers:
-            laser.move(movement)
-            if laser.off_screen(HEIGHT):
-                self.lasers.remove(laser)
-            elif laser.collision(Object):
-                Object.health -= self.damage
-                self.lasers.remove(laser)
-
-
-    def get_width(self):
-        return self.ship_img.get_width()
-
-    def get_height(self): 
-        return self.ship_img.get_height()
-
-    def shoot(self):
-        if self.laser_countdown == 0:
-            laser = Laser(self.x, self.y, self.laser_img)
-            self.lasers.append(laser)
-            self.laser_countdown = 1
-
-    def cooldown(self):
-        if self.laser_countdown >= self.COOLDOWN:
-            self.laser_countdown = 0
-        elif self.laser_countdown > 0:
-            self.laser_countdown += 1
-
-
-
-class SpeicalEnemies3:
-    COOLDOWN = 30
-
-    def __init__(self, x, y, health=100, damage=10):
-        self.x = x
-        self.y = y
-        self.health = health
-        self.ship_img = None
-        self.laser_img = None
-        self.laser_img2 = None
-        self.laser_img3 = None
-        self.lasers = []
-        self.laser_countdown = 0
-        self.damage = damage
-
-    def draw(self, window):
-        window.blit(self.ship_img,(self.x, self.y))
-        for laser in self.lasers:
-            laser.draw(window)
-    
-    def move_lasers(self, movement, Object):
-        self.cooldown()
-        for laser in self.lasers:
-            laser.move(movement)
-            if laser.off_screen(HEIGHT):
-                self.lasers.remove(laser)
-            elif laser.collision(Object):
-                Object.health -= self.damage
-                self.lasers.remove(laser)
-
-
-    def get_width(self):
-        return self.ship_img.get_width()
-
-    def get_height(self): 
-        return self.ship_img.get_height()
-
-    def shoot(self):
-        if self.laser_countdown == 0:
-            laser = Laser(self.x, self.y, self.laser_img)
-            self.lasers.append(laser)
-            laser2 = Laser2(self.x, self.y, self.laser_img2)
-            self.lasers.append(laser2)
-            laser3 = Laser3(self.x, self.y, self.laser_img3)
-            self.lasers.append(laser3)
-            self.laser_countdown = 1
-    
-    def cooldown(self):
-        if self.laser_countdown >= self.COOLDOWN:
-            self.laser_countdown = 0
-        elif self.laser_countdown > 0:
-            self.laser_countdown += 1
-
-
-class SpeicalEnemies4:
-    COOLDOWN = 90
-
-    def __init__(self, x, y, health=100, damage=50):
-        self.x = x
-        self.y = y
-        self.health = health
-        self.ship_img = None
-        self.laser_img = None
-        self.lasers = []
-        self.laser_countdown = 0
-        self.damage = damage
-
-    def draw(self, window):
-        window.blit(self.ship_img,(self.x, self.y))
-        for laser in self.lasers:
-            laser.draw(window)
-    
-    def move_lasers(self, movement, Object):
-        self.cooldown()
-        for laser in self.lasers:
-            laser.move(movement)
-            if laser.off_screen(HEIGHT):
-                self.lasers.remove(laser)
-            elif laser.collision(Object):
-                Object.health -= self.damage
-                self.lasers.remove(laser)
-
-
-    def get_width(self):
-        return self.ship_img.get_width()
-
-    def get_height(self): 
-        return self.ship_img.get_height()
-
-    def shoot(self):
-        if self.laser_countdown == 0:
-            laser = Laser(self.x, self.y, self.laser_img)
-            self.lasers.append(laser)
-            self.laser_countdown = 1
-
-    def cooldown(self):
-        if self.laser_countdown >= self.COOLDOWN:
-            self.laser_countdown = 0
-        elif self.laser_countdown > 0:
-            self.laser_countdown += 1
-
-
-
-class SpeicalEnemies5:
-    COOLDOWN = 1
-
-    def __init__(self, x, y, health=100, damage=10):
-        self.x = x
-        self.y = y
-        self.health = health
-        self.ship_img = None
-        self.laser_img = None
-        self.laser_img2 = None
-        self.laser_img3 = None
-        self.lasers = []
-        self.laser_countdown = 0
-        self.damage = damage
-
-    def draw(self, window):
-        window.blit(self.ship_img,(self.x, self.y))
-        for laser in self.lasers:
-            laser.draw(window)
-    
-    def move_lasers(self, movement, Object):
-        self.cooldown()
-        for laser in self.lasers:
-            laser.move(movement)
-            if laser.off_screen(HEIGHT):
-                self.lasers.remove(laser)
-            elif laser.collision(Object):
-                Object.health -= self.damage
-                self.lasers.remove(laser)
-
-    def get_width(self):
-        return self.ship_img.get_width()
-
-    def get_height(self): 
-        return self.ship_img.get_height()
-
-    def shoot(self):
-        if self.laser_countdown == 0:
-            laser = Laser(self.x, self.y, self.laser_img)
-            self.lasers.append(laser)
-            self.laser_countdown = 1
-
-    def cooldown(self):
-        if self.laser_countdown >= self.COOLDOWN:
-            self.laser_countdown = 0
-        elif self.laser_countdown > 0:
-            self.laser_countdown += 1
-
-
-
-class SpeicalEnemies6:
-    COOLDOWN = 100
+class BigEnemies2:
+    COOLDOWN = 60
 
     def __init__(self, x, y, health=100, damage=10):
         self.x = x
@@ -376,20 +178,19 @@ class SpeicalEnemies6:
             self.laser_countdown += 1
 
 
-class SpeicalEnemies7:
-    COOLDOWN = 140
 
-    def __init__(self, x, y, health=100, damage=10):
+class BigEnemies3:
+    COOLDOWN = 65
+
+    def __init__(self, x, y, health=100, damage=70):
         self.x = x
         self.y = y
         self.health = health
         self.ship_img = None
         self.laser_img = None
-        self.laser_img2 = None
-        self.laser_img3 = None
         self.lasers = []
         self.laser_countdown = 0
-        self.damage = damage
+        self.damage = damage 
 
     def draw(self, window):
         window.blit(self.ship_img,(self.x, self.y))
@@ -405,6 +206,55 @@ class SpeicalEnemies7:
             elif laser.collision(Object):
                 Object.health -= self.damage
                 self.lasers.remove(laser)
+
+
+    def get_width(self):
+        return self.ship_img.get_width()
+
+    def get_height(self): 
+        return self.ship_img.get_height()
+
+    def shoot(self):
+        if self.laser_countdown == 0:
+            laser = Laser(self.x, self.y, self.laser_img)
+            self.lasers.append(laser)
+            self.laser_countdown = 1
+
+    def cooldown(self):
+        if self.laser_countdown >= self.COOLDOWN:
+            self.laser_countdown = 0
+        elif self.laser_countdown > 0:
+            self.laser_countdown += 1
+
+
+class BigEnemies4:
+    COOLDOWN = 75
+
+    def __init__(self, x, y, health=100, damage=80):
+        self.x = x
+        self.y = y
+        self.health = health
+        self.ship_img = None
+        self.laser_img = None
+        self.lasers = []
+        self.laser_countdown = 0
+        self.damage = damage 
+
+    def draw(self, window):
+        window.blit(self.ship_img,(self.x, self.y))
+        for laser in self.lasers:
+            laser.draw(window)
+    
+    def move_lasers(self, movement, Object):
+        self.cooldown()
+        for laser in self.lasers:
+            laser.move(movement)
+            if laser.off_screen(HEIGHT):
+                self.lasers.remove(laser)
+            elif laser.collision(Object):
+                Object.health -= self.damage
+                self.lasers.remove(laser)
+
 
     def get_width(self):
         return self.ship_img.get_width()
@@ -426,145 +276,110 @@ class SpeicalEnemies7:
 
 
 
-class Speical1(SpeicalEnemies1):
+class BigEnemies5:
+    COOLDOWN = 75
 
-    COLOR_MAP = {
-            "Special_Enemy": (SPEICAL_SHIP1, RED_lASER),
-            }
-    def __init__(self, x, y, color, health=100, damage=10):
-        super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+    def __init__(self, x, y, health=100, damage=80):
+        self.x = x
+        self.y = y
+        self.health = health
+        self.ship_img = None
+        self.laser_img = None
+        self.lasers = []
+        self.laser_countdown = 0
+        self.damage = damage 
+
+    def draw(self, window):
+        window.blit(self.ship_img,(self.x, self.y))
+        for laser in self.lasers:
+            laser.draw(window)
     
-    def move(self, movemoment):
-        self.y += movemoment
+    def move_lasers(self, movement, Object):
+        self.cooldown()
+        for laser in self.lasers:
+            laser.move(movement)
+            if laser.off_screen(HEIGHT):
+                self.lasers.remove(laser)
+            elif laser.collision(Object):
+                Object.health -= self.damage
+                self.lasers.remove(laser)
+
+
+    def get_width(self):
+        return self.ship_img.get_width()
+
+    def get_height(self): 
+        return self.ship_img.get_height()
 
     def shoot(self):
         if self.laser_countdown == 0:
-            laser = Laser(self.x, self.y + 35, self.laser_img)
+            laser = Laser(self.x, self.y, self.laser_img)
             self.lasers.append(laser)
             self.laser_countdown = 1
 
+    def cooldown(self):
+        if self.laser_countdown >= self.COOLDOWN:
+            self.laser_countdown = 0
+        elif self.laser_countdown > 0:
+            self.laser_countdown += 1
 
-class Speical2(SpeicalEnemies2):
 
-    COLOR_MAP = {
-            "Special_Enemy": (SPEICAL_SHIP4, RED_lASER),
-            }
-    def __init__(self, x, y, color, health=100, damage=10):
-        super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+
+
+class BigEnemies6:
+    COOLDOWN = 75
+
+    def __init__(self, x, y, health=100, damage=80):
+        self.x = x
+        self.y = y
+        self.health = health
+        self.ship_img = None
+        self.laser_img = None
+        self.lasers = []
+        self.laser_countdown = 0
+        self.damage = damage 
+
+    def draw(self, window):
+        window.blit(self.ship_img,(self.x, self.y))
+        for laser in self.lasers:
+            laser.draw(window)
     
-    def move(self, movemoment):
-        self.y += movemoment
+    def move_lasers(self, movement, Object):
+        self.cooldown()
+        for laser in self.lasers:
+            laser.move(movement)
+            if laser.off_screen(HEIGHT):
+                self.lasers.remove(laser)
+            elif laser.collision(Object):
+                Object.health -= self.damage
+                self.lasers.remove(laser)
+
+
+    def get_width(self):
+        return self.ship_img.get_width()
+
+    def get_height(self): 
+        return self.ship_img.get_height()
 
     def shoot(self):
         if self.laser_countdown == 0:
-            laser = Laser(self.x, self.y + 35, self.laser_img)
+            laser = Laser(self.x, self.y, self.laser_img)
             self.lasers.append(laser)
             self.laser_countdown = 1
 
-
-class Speical3(SpeicalEnemies3):
-
-
-    COLOR_MAP = {
-            "Special_Enemy": (SPEICAL_SHIP2, RED_lASER, RED_lASER, RED_lASER),
-            }
-    def __init__(self, x, y, color, health=100, damage=10):
-        super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img, self.laser_img2, self.laser_img3 = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
-    
-    def move(self, movemoment):
-        self.y += movemoment
-
-    def shoot(self):
-        if self.laser_countdown == 0:
-            laser = Laser(self.x, self.y + 50, self.laser_img)
-            self.lasers.append(laser)
-            self.laser_countdown = 1
-            laser2 = Laser2(self.x - 40, self.y + 70, self.laser_img2)
-            self.lasers.append(laser2)
-            laser3 = Laser3(self.x + 40, self.y + 70, self.laser_img3)
-            self.lasers.append(laser3)
-            self.laser_countdown = 1
+    def cooldown(self):
+        if self.laser_countdown >= self.COOLDOWN:
+            self.laser_countdown = 0
+        elif self.laser_countdown > 0:
+            self.laser_countdown += 1
 
 
-
-class Speical4(SpeicalEnemies4):
+class BigEnemy1(BigEnemies1):
 
     COLOR_MAP = {
-            "Special_Enemy": (SPEICAL_SHIP3, BLUE_AND_DARKBLUE_lASER),
+            "Big_Enemy": (BIG_ENEMY1, ENERGY_STAR_BALL, ENERGY_STAR_BALL, ENERGY_STAR_BALL),
             }
-    def __init__(self, x, y, color, health=100, damage=10):
-        super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
-    
-    def move(self, movemoment):
-        self.y += movemoment
-
-    def shoot(self):
-        if self.laser_countdown == 0:
-            laser = Laser(self.x + 15, self.y + 50, self.laser_img)
-            self.lasers.append(laser)
-            self.laser_countdown = 1
-
-
-class Speical5(SpeicalEnemies5):
-
-    COLOR_MAP = {
-            "Special_Enemy": (SPEICAL_SHIP5, BLUE_LASER, BLUE_LASER, BLUE_LASER),
-            }
-    def __init__(self, x, y, color, health=100, damage=10):
-        super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img, self.laser_img2, self.laser_img3 = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
-    
-    def move(self, movemoment):
-        self.y += movemoment
-
-    def shoot(self):
-        if self.laser_countdown == 0:
-            laser = Laser(self.x, self.y + 50, self.laser_img)
-            self.lasers.append(laser)
-            self.laser_countdown = 1
-            laser2 = Laser2(self.x + 40, self.y + 50, self.laser_img2)
-            self.lasers.append(laser2)
-            laser3 = Laser3(self.x - 40, self.y + 50, self.laser_img3)
-            self.lasers.append(laser3)
-            self.laser_countdown = 1
-
-
-class Speical6(SpeicalEnemies6):
-
-    COLOR_MAP = {
-            "Special_Enemy": (SPEICAL_SHIP6, ENERGY_STAR_BALL),
-            }
-    def __init__(self, x, y, color, health=100, damage=10):
-        super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
-    
-    def move(self, movemoment):
-        self.y += movemoment
-
-    def shoot(self):
-        if self.laser_countdown == 0:
-            laser = Laser(self.x - 30, self.y, self.laser_img)
-            self.lasers.append(laser)
-            self.laser_countdown = 1
-
-
-
-class Speical7(SpeicalEnemies7):
-
-    COLOR_MAP = {
-            "Special_Enemy": (SPEICAL_SHIP7, BLUE_AND_DARKBLUE_lASER, RED_lASER, RED_lASER),
-            }
-    def __init__(self, x, y, color, health=100, damage=10):
+    def __init__(self, x, y, color, health=100, damage=60):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img, self.laser_img2, self.laser_img3 = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)
@@ -574,29 +389,117 @@ class Speical7(SpeicalEnemies7):
 
     def shoot(self):
         if self.laser_countdown == 0:
-            laser = Laser(self.x + 20, self.y + 50, self.laser_img)
+            laser = Laser(self.x, self.y + 90, self.laser_img)
             self.lasers.append(laser)
-            self.laser_countdown = 1
-            laser2 = Laser2(self.x + 40, self.y + 50, self.laser_img2)
+            laser2 = Laser2(self.x + 50, self.y + 90, self.laser_img2)
             self.lasers.append(laser2)
-            laser3 = Laser3(self.x - 40, self.y + 50, self.laser_img3)
+            laser3 = Laser3(self.x - 50, self.y + 90, self.laser_img3)
             self.lasers.append(laser3)
             self.laser_countdown = 1
 
+class BigEnemy2(BigEnemies2):
+
+    COLOR_MAP = {
+            "Big_Enemy": (BIG_ENEMY2, BLUE_ENERGY_LASER),
+            }
+    def __init__(self, x, y, color, health=100, damage=60):
+        super().__init__(x, y, health, damage)
+        self.ship_img, self.laser_img = self.COLOR_MAP[color]
+        self. mask = pygame.mask.from_surface(self.ship_img)
+    
+    def move(self, movemoment):
+        self.y += movemoment
+
+    def shoot(self):
+        if self.laser_countdown == 0:
+            laser = Laser(self.x, self.y + 45, self.laser_img)
+            self.lasers.append(laser)
+            self.laser_countdown = 1
+
+
+
+class BigEnemy3(BigEnemies3):
+
+    COLOR_MAP = {
+            "Big_Enemy": (BIG_ENEMY3, GOLDEN_LASER_MISSLE),
+            }
+    def __init__(self, x, y, color, health=100, damage=65):
+        super().__init__(x, y, health, damage)
+        self.ship_img, self.laser_img = self.COLOR_MAP[color]
+        self. mask = pygame.mask.from_surface(self.ship_img)
+    
+    def move(self, movemoment):
+        self.y += movemoment
+
+    def shoot(self):
+        if self.laser_countdown == 0:
+            laser = Laser(self.x + 45, self.y + 45, self.laser_img)
+            self.lasers.append(laser)
+            self.laser_countdown = 1
 
 
 
 
+class BigEnemy4(BigEnemies4):
+
+    COLOR_MAP = {
+            "Big_Enemy": (BIG_ENEMY4, PURPLE_ENERGY_BALL),
+            }
+    def __init__(self, x, y, color, health=100, damage=80):
+        super().__init__(x, y, health, damage)
+        self.ship_img, self.laser_img = self.COLOR_MAP[color]
+        self. mask = pygame.mask.from_surface(self.ship_img)
+    
+    def move(self, movemoment):
+        self.y += movemoment
+
+    def shoot(self):
+        if self.laser_countdown == 0:
+            laser = Laser(self.x + 45, self.y + 100, self.laser_img)
+            self.lasers.append(laser)
+            self.laser_countdown = 1
 
 
 
+class BigEnemy5(BigEnemies5):
+
+    COLOR_MAP = {
+            "Big_Enemy": (BIG_ENEMY5, BLUE_ENERGY_BALL),
+            }
+    def __init__(self, x, y, color, health=100, damage=80):
+        super().__init__(x, y, health, damage)
+        self.ship_img, self.laser_img = self.COLOR_MAP[color]
+        self. mask = pygame.mask.from_surface(self.ship_img)
+    
+    def move(self, movemoment):
+        self.y += movemoment
+
+    def shoot(self):
+        if self.laser_countdown == 0:
+            laser = Laser(self.x + 45, self.y + 45, self.laser_img)
+            self.lasers.append(laser)
+            self.laser_countdown = 1
 
 
 
+class BigEnemy6(BigEnemies6):
 
+    COLOR_MAP = {
+            "Big_Enemy": (BIG_ENEMY6, BLUE_ENERGY_LASER),
+            }
+    def __init__(self, x, y, color, health=100, damage=80):
+        super().__init__(x, y, health, damage)
+        self.ship_img, self.laser_img = self.COLOR_MAP[color]
+        self. mask = pygame.mask.from_surface(self.ship_img)
+    
+    def move(self, movemoment):
+        self.y += movemoment
 
-
-
+    def shoot(self):
+        if self.laser_countdown == 0:
+            laser = Laser(self.x + 45, self.y + 45, self.laser_img)
+            self.lasers.append(laser)
+            self.laser_countdown = 1
 
 
 
