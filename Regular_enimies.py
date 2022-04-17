@@ -5,9 +5,8 @@ from Enimies import *
 from SpaceGameVariabies import *
 from Lasers_EnergyBalls import *
 
-
-HEIGHT = 800
-WIDTH = 1000
+WIDTH = 1200
+HEIGHT = 750
 
 
 class Laser:

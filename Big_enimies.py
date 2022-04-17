@@ -7,8 +7,10 @@ from Lasers_EnergyBalls import *
 
 
 
-HEIGHT = 800
-WIDTH = 1000
+
+WIDTH = 1200
+HEIGHT = 750
+
 
 class Laser:
     def __init__(self, x, y, img):
@@ -387,8 +389,12 @@ class BigEnemy1(BigEnemies1):
 
     def shoot(self):
         if self.laser_countdown == 0:
-            laser = Laser(self.x, self.y, self.laser_img)
+            laser = Laser(self.x, self.y + 90, self.laser_img)
             self.lasers.append(laser)
+            laser2 = Laser2(self.x + 50, self.y + 90, self.laser_img2)
+            self.lasers.append(laser2)
+            laser3 = Laser3(self.x - 50, self.y + 90, self.laser_img3)
+            self.lasers.append(laser3)
             self.laser_countdown = 1
 
 class BigEnemy2(BigEnemies2):

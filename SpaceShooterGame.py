@@ -19,7 +19,7 @@ def player_controls():
         player.x += movement # right and and blocks me from going off the screen
     if controls[pygame.K_UP] and player.y - movement > 0 or controls[pygame.K_w] and player.y - movement > 0:
         player.y -= movement # up and and blocks me from going off the screen
-    if controls[pygame.K_DOWN] and player.y + movement + player.get_height() + 75 < HEIGHT or controls[pygame.K_s] and player.y + movement + player.get_height() + 75 < HEIGHT :
+    if controls[pygame.K_DOWN] and player.y + movement + player.get_height() + 35 < HEIGHT or controls[pygame.K_s] and player.y + movement + player.get_height() + 35 < HEIGHT :
         player.y += movement # down and and blocks me from going off the screen
     if controls[pygame.K_SPACE]:
         player.shoot() 
@@ -33,7 +33,7 @@ def StartGame():
     start_game = True
     lost_count = 0
     FPS = 60
-    level = 19
+    level = 24
 
     Clock = pygame.time.Clock()
     def redraw_window():
@@ -121,7 +121,30 @@ def StartGame():
         if level == 19:
             level19(level)
         if level == 20:
-            level20(level)           
+            level20(level)  
+        if level == 21:
+            level21(level)  
+        if level == 22:
+            level22(level)  
+        if level == 23:
+            level23(level)  
+        if level == 24:
+            level24(level) 
+        if level == 25:
+            level25(level)
+        if level == 26:
+            level26(level)  
+        if level == 27:
+            level27(level)  
+        if level == 28:
+            level28(level)  
+        if level == 29:
+            level29(level)  
+        if level == 30:
+            level30(level) 
+
+
+
 
 
 

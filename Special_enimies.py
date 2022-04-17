@@ -6,8 +6,8 @@ from SpaceGameVariabies import *
 from Lasers_EnergyBalls import *
 
 
-HEIGHT = 800
 WIDTH = 1200
+HEIGHT = 750
 
 class Laser:
     def __init__(self, x, y, img):
