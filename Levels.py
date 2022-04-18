@@ -682,7 +682,7 @@ def level21(level):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-6000, -2000), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega1(random.randrange(50, WIDTH - 150), random.randrange(-5000, -3000), random.choice(["Mega_Enemy"]))
+                enemy = Mega1(random.randrange(50, WIDTH - 300), random.randrange(-5000, -3000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -725,7 +725,7 @@ def level22(level):
                 enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega2(random.randrange(50, WIDTH - 10), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega2(random.randrange(50, WIDTH - 300), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -770,7 +770,7 @@ def level23(level):
                 enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega3(random.randrange(50, WIDTH - 10), random.randrange(-3000, -2000), random.choice(["Mega_Enemy"]))
+                enemy = Mega3(random.randrange(50, WIDTH - 300), random.randrange(-3000, -2000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -820,7 +820,7 @@ def level24(level):
                 enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega4(random.randrange(50, WIDTH - 10), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega4(random.randrange(50, WIDTH - 300), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -979,13 +979,13 @@ def level28(level):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega1(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega1(random.randrange(50, WIDTH - 300), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega2(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega2(random.randrange(50, WIDTH - 300), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega3(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega3(random.randrange(50, WIDTH - 300), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega4(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega4(random.randrange(50, WIDTH - 300), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -1023,13 +1023,13 @@ def level29(level):
                 enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega1(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega1(random.randrange(50, WIDTH - 300), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega2(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega2(random.randrange(50, WIDTH - 300), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega3(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega3(random.randrange(50, WIDTH - 300), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega4(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega4(random.randrange(50, WIDTH - 300), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -1092,13 +1092,13 @@ def level30(level):
                 enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega1(random.randrange(50, WIDTH - 10), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
+                enemy = Mega1(random.randrange(50, WIDTH - 300), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega2(random.randrange(50, WIDTH - 10), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
+                enemy = Mega2(random.randrange(50, WIDTH - 300), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega3(random.randrange(50, WIDTH - 10), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
+                enemy = Mega3(random.randrange(50, WIDTH - 300), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega4(random.randrange(50, WIDTH - 10), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
+                enemy = Mega4(random.randrange(50, WIDTH - 300), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
