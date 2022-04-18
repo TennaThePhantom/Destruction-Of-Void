@@ -1,7 +1,7 @@
 import pygame
 import os
 from pygame.locals import *
-from SpaceGameVariabies import *
+from SpaceGameVariables import *
 
 RED_lASER = pygame.image.load(os.path.join("Images", "Guns", "laser_red.png" ))
 GREEN_LASER = pygame.image.load(os.path.join("Images", "Guns", "laser_green.png" ))

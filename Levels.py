@@ -3,7 +3,7 @@ import pygame
 import random
 from pygame.locals import *
 from Enemies import *
-from SpaceGameVariabies import *
+from SpaceGameVariables import *
 from PlayerShip import *
 from Regular_enemies import *
 from Special_enemies import *
@@ -108,7 +108,7 @@ def level4(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 10
+                player.health -= 8
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -138,7 +138,7 @@ def level5(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 10
+                player.health -= 8
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -168,7 +168,7 @@ def level6(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 10
+                player.health -= 8
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -326,7 +326,7 @@ def level11(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 13
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -355,7 +355,7 @@ def level12(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 15
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -423,7 +423,7 @@ def level14(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 25
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -457,7 +457,7 @@ def level15(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 27
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -502,7 +502,7 @@ def level16(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 27
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -544,7 +544,7 @@ def level17(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 29
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -585,7 +585,7 @@ def level18(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 29
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -620,7 +620,7 @@ def level19(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 35
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -660,7 +660,7 @@ def level20(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 45
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -691,7 +691,7 @@ def level21(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 60
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -725,7 +725,7 @@ def level22(level):
                 enemy = BigEnemy1(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega2(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega2(random.randrange(50, WIDTH - 10), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -734,7 +734,7 @@ def level22(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 65
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -770,7 +770,7 @@ def level23(level):
                 enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -2000), random.choice(["Mega_Enemy"]))
+                enemy = Mega3(random.randrange(50, WIDTH - 10), random.randrange(-3000, -2000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -779,7 +779,7 @@ def level23(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 80
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -820,7 +820,7 @@ def level24(level):
                 enemy = BigEnemy3(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega4(random.randrange(50, WIDTH - 150), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega4(random.randrange(50, WIDTH - 10), random.randrange(-3000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -829,7 +829,7 @@ def level24(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 83
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -879,7 +879,7 @@ def level25(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 85
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -960,7 +960,7 @@ def level27(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 88
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -979,13 +979,13 @@ def level28(level):
                 enemy = Enemy2(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 3", "Enemy 4", "Enemy 5", "Enemy 6", "Enemy 7", "Enemy 8",]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega1(random.randrange(50, WIDTH - 50), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega1(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega2(random.randrange(50, WIDTH - 50), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega2(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega3(random.randrange(50, WIDTH - 50), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega3(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega4(random.randrange(50, WIDTH - 50), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega4(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -994,7 +994,7 @@ def level28(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 91
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -1023,13 +1023,13 @@ def level29(level):
                 enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-5000, -100), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega1(random.randrange(50, WIDTH - 50), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega1(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega2(random.randrange(50, WIDTH - 50), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega2(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega3(random.randrange(50, WIDTH - 50), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega3(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega4(random.randrange(50, WIDTH - 50), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
+                enemy = Mega4(random.randrange(50, WIDTH - 10), random.randrange(-5000, -1000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -1038,7 +1038,7 @@ def level29(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 93
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
@@ -1053,8 +1053,8 @@ def level30(level):
     specialwave = 10
     wave1 = 60
     wave2 = 50
-    enemies_movement = range(1, 2 + 1)
-    enemies_guns_speed = range(4, 5 + 1)
+    enemies_movement = 2
+    enemies_guns_speed = 5
     if level == 30:    
         if len(enemies) == 0:
             for enemy_amount in range(wave1):
@@ -1092,13 +1092,13 @@ def level30(level):
                 enemy = BigEnemy6(random.randrange(50, WIDTH - 150), random.randrange(-8000, -4000), random.choice(["Big_Enemy"]))
                 enemies.append(enemy)
             for enemy_amount in range(Megawave):
-                enemy = Mega1(random.randrange(50, WIDTH - 50), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
+                enemy = Mega1(random.randrange(50, WIDTH - 10), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega2(random.randrange(50, WIDTH - 50), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
+                enemy = Mega2(random.randrange(50, WIDTH - 10), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega3(random.randrange(50, WIDTH - 50), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
+                enemy = Mega3(random.randrange(50, WIDTH - 10), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
-                enemy = Mega4(random.randrange(50, WIDTH - 50), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
+                enemy = Mega4(random.randrange(50, WIDTH - 10), random.randrange(-10000, -5000), random.choice(["Mega_Enemy"]))
                 enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
@@ -1107,7 +1107,7 @@ def level30(level):
                 enemy.shoot()
 
             if collide(enemy, player):
-                player.health -= 20
+                player.health -= 100
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)

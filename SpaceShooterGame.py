@@ -1,12 +1,16 @@
-from os import remove
 import pygame
-import random
-import time
 from pygame.locals import *
-from SpaceGameVariabies import *
+from SpaceGameVariables import *
 from Levels import *
 
+
+pygame.mixer.init()
+
 pygame.font.init()
+
+MUSIC = pygame.mixer.music.load('SpaceShootermusic.ogg')
+
+
 
 def gamelevels(level):
 
@@ -92,15 +96,20 @@ def player_controls():
 
     player.move_lasers(-Guns_movement, enemies)
 
+
 def StartGame():
     global enemies
     global movement
     global Guns_movement
     game_over = False
     start_game = True
+    won_game = False
     lost_count = 0
+    won_count = 0
     FPS = 60
-    level = 7
+    level = 30
+    pygame.mixer.music.play(-1)
+
 
     Clock = pygame.time.Clock()
 
@@ -110,6 +119,7 @@ def StartGame():
 
         font = pygame.font.SysFont("comicsans", 50)
         game_over_font = pygame.font.SysFont("Comicsans", 60)
+        won_game_font = pygame.font.SysFont("Comicsans", 55)
 
 
         level_label = font.render(f"Level: {level}", 1, (WHITE))
@@ -123,8 +133,12 @@ def StartGame():
             enemy.draw(SCREEN)
 
         if game_over == True:
-            game_over_text = game_over_font.render("You Lost!!", 1, (255, 255, 255))
+            game_over_text = game_over_font.render("You Lost!!", 1, WHITE)
             SCREEN.blit(game_over_text, (WIDTH / 2 - level_label.get_width() / 2, 350))
+
+        if won_game == True:
+            won_game_text = won_game_font.render("You survived all 30 waves congratulations !!", 1, WHITE)
+            SCREEN.blit(won_game_text, (WIDTH / 2 - level_label.get_width() / 2 - 450, 350))
 
         pygame.display.update()
 
@@ -144,14 +158,25 @@ def StartGame():
             else:
                 level = 0
                 continue
-            
+
+        if level == 31:
+            won_game = True
+            won_count += 1
+        if won_game == True:
+            if won_count > FPS * 4:
+                start_game = False
+                pygame.mixer.music.stop()
+            else:
+                continue
+
+
         player_controls()
     
         if len(enemies) == 0:
             level += 1
             if level == 5:
                 player.health += 150
-                movement = 5.6
+                movement = 5.8
                 Guns_movement = 4.1
                 player.COOLDOWN = 28
             if level == 8:
@@ -159,13 +184,13 @@ def StartGame():
             if level == 10:
                 player.health += 200
                 player.max_health += 400
-                movement = 5.7
+                movement = 5.9
                 Guns_movement = 4.4
                 player.COOLDOWN = 26
                 player.ship_img = USER_SPACE_SHIP2
             if level == 13:
                 player.health += 250
-                movement = 5.8
+                movement = 6.1
                 Guns_movement = 4.5
             if level == 15:
                 player.laser_img = BLUE_AND_DARKBLUE_lASER
@@ -173,10 +198,10 @@ def StartGame():
             if level == 17:
                 player.health = 900
                 player.max_health = 900
-                movement = 5.9
+                movement = 6.3
                 Guns_movement = 4.6
             if level == 20:
-                movement = 5.8
+                movement = 6.5
                 Guns_movement = 4.5
                 player.COOLDOWN = 21
                 player.health + 175
@@ -185,16 +210,19 @@ def StartGame():
             if level == 22:
                 player.laser_img = RED_ENERGY_BLAST
             if level == 23:
-                movement = 6
+                movement = 6.7
                 Guns_movement = 4.8
                 player.COOLDOWN = 18
             if level == 24: 
                 player.health = 1150
                 player.max_health = 1150
             if level == 25:
-                movement = 6.2
+                movement = 7
                 Guns_movement = 5
                 player.COOLDOWN = 15
+            if level == 27:
+                player.health += 300
+                player.max_health += 400
             
 
 
@@ -210,6 +238,7 @@ def StartGame():
             if window.type == pygame.QUIT:
                 start_game = False
                 level = 0
+                pygame.mixer.music.stop()
     
 
 

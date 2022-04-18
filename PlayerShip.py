@@ -2,7 +2,7 @@ import pygame
 import os
 from pygame.locals import * 
 from Enemies import *
-from SpaceGameVariabies import *
+from SpaceGameVariables import *
 from Lasers_EnergyBalls import *
 
 WIDTH = 1200

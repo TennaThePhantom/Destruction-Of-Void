@@ -21,5 +21,3 @@ ICON = pygame.display.set_icon(pygame.image.load(os.path.join("Images", "void.jp
 BG = pygame.transform.scale(pygame.image.load(os.path.join("Images", "space_background.jpg" )), (WIDTH, HEIGHT))
 
 
-
-

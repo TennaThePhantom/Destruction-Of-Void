@@ -1,7 +1,7 @@
 import pygame
 import os
 from pygame.locals import *
-from SpaceGameVariabies import *
+from SpaceGameVariables import *
 
 
 
