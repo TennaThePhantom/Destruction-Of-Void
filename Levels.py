@@ -1,4 +1,3 @@
-import imp
 import pygame
 import random
 from pygame.locals import *
@@ -8,7 +7,7 @@ from PlayerShip import *
 from Regular_enemies import *
 from Special_enemies import *
 from Big_enemies import *
-from Mega_enimies import * 
+from Mega_enemies import * 
 from Lasers_EnergyBalls import *
 
 
@@ -87,6 +86,7 @@ def level3(level):
 
         pygame.display.update()
 
+
 def level4(level):
     global enemies
     wave1 = 8
@@ -114,6 +114,7 @@ def level4(level):
                 enemies.remove(enemy)
 
         pygame.display.update()
+
 
 def level5(level):
     global enemies
@@ -176,6 +177,7 @@ def level6(level):
 
         pygame.display.update()
 
+
 def level7(level):
     global enemies
     wave1 = 10
@@ -185,15 +187,15 @@ def level7(level):
     enemies_guns_speed = 3.5
     if level == 7:    
         if len(enemies) == 0:
-                for enemy_amount in range(wave1):
-                    enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1800, -100), random.choice(["Enemy 7", "Enemy 6", "Enemy 4", "Enemy 2", ]))
-                    enemies.append(enemy)
-                for enemy_amount in range(wave2):
-                    enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-2400, -1500), random.choice(["Enemy 7", "Enemy 3"]))
-                    enemies.append(enemy)
-                for enemy_amount in range(specialwave):
-                    enemy = Special1(random.randrange(50, WIDTH - 100), random.randrange(-2200, -2000), random.choice(["Special_Enemy"]))
-                    enemies.append(enemy)
+            for enemy_amount in range(wave1):
+                enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-1800, -100), random.choice(["Enemy 7", "Enemy 6", "Enemy 4", "Enemy 2", ]))
+                enemies.append(enemy)
+            for enemy_amount in range(wave2):
+                enemy = Enemy(random.randrange(50, WIDTH - 100), random.randrange(-2400, -1500), random.choice(["Enemy 7", "Enemy 3"]))
+                enemies.append(enemy)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 100), random.randrange(-2200, -2000), random.choice(["Special_Enemy"]))
+                enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
             enemy.move_lasers(enemies_guns_speed, player)
@@ -206,6 +208,7 @@ def level7(level):
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
 
+
 def level8(level):
     global enemies
     wave1 = 9
@@ -215,15 +218,15 @@ def level8(level):
     enemies_guns_speed = 3.5
     if level == 8:    
         if len(enemies) == 0:
-                for enemy_amount in range(wave1):
-                    enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1400, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 6", "Enemy 5", ]))
-                    enemies.append(enemy)
-                for enemy_amount in range(wave2):
-                    enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1400), random.choice(["Enemy 8", "Enemy 4"]))
-                    enemies.append(enemy)
-                for enemy_amount in range(specialwave):
-                    enemy = Special1(random.randrange(50, WIDTH - 100), random.randrange(-1800, -1600), random.choice(["Special_Enemy"]))
-                    enemies.append(enemy)
+            for enemy_amount in range(wave1):
+                enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-1400, -100), random.choice(["Enemy 1", "Enemy 2", "Enemy 6", "Enemy 5", ]))
+                enemies.append(enemy)
+            for enemy_amount in range(wave2):
+                enemy = Enemy(random.randrange(50, WIDTH - 150), random.randrange(-2000, -1400), random.choice(["Enemy 8", "Enemy 4"]))
+                enemies.append(enemy)
+            for enemy_amount in range(specialwave):
+                enemy = Special1(random.randrange(50, WIDTH - 100), random.randrange(-1800, -1600), random.choice(["Special_Enemy"]))
+                enemies.append(enemy)
         for enemy in enemies:
             enemy.move(enemies_movement)
             enemy.move_lasers(enemies_guns_speed, player)
@@ -427,7 +430,8 @@ def level14(level):
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
-    
+
+
 def level15(level):
     global enemies
     specialwave = 4
@@ -508,7 +512,6 @@ def level16(level):
                 enemies.remove(enemy)
 
 
-
 def level17(level):
     global enemies
     wave1 = 25
@@ -550,8 +553,6 @@ def level17(level):
                 enemies.remove(enemy)
 
 
-
-
 def level18(level):
     global enemies
     wave1 = 8
@@ -591,8 +592,6 @@ def level18(level):
                 enemies.remove(enemy)
 
 
-
-
 def level19(level):
     global enemies
     wave1 = 14
@@ -624,7 +623,6 @@ def level19(level):
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
-
 
 
 def level20(level):
@@ -697,8 +695,6 @@ def level21(level):
                 enemies.remove(enemy)
 
 
-
-
 def level22(level):
     global enemies
     wave1 = 30
@@ -738,8 +734,6 @@ def level22(level):
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
-
-
 
 
 def level23(level):
@@ -783,7 +777,6 @@ def level23(level):
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
-
 
 
 def level24(level):
@@ -885,7 +878,6 @@ def level25(level):
                 enemies.remove(enemy)
 
 
-
 def level26(level):
     global enemies
     specialwave = 3
@@ -936,9 +928,6 @@ def level26(level):
                 enemies.remove(enemy)
 
 
-
-
-
 def level27(level):
     global enemies
     wave1 = 60
@@ -964,7 +953,6 @@ def level27(level):
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
-
 
 
 def level28(level):
@@ -998,7 +986,6 @@ def level28(level):
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
-
 
 
 def level29(level):
@@ -1042,8 +1029,6 @@ def level29(level):
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
-
-
 
 
 def level30(level):
@@ -1111,11 +1096,6 @@ def level30(level):
                 enemies.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
                 enemies.remove(enemy)
-
-
-
-
-
 
 
 
