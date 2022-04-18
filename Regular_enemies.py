@@ -31,6 +31,7 @@ class Laser:
         return collide(self, hit)
 
 
+
 class Ship:
     COOLDOWN = 30
 
@@ -77,6 +78,7 @@ class Ship:
             self.laser_countdown = 0
         elif self.laser_countdown > 0:
             self.laser_countdown += 1
+
 
 
 class Ship2:
@@ -127,8 +129,9 @@ class Ship2:
             self.laser_countdown += 1
 
 
+
 class Enemy(Ship):
-    COLOR_MAP = {
+    ENEMY_MAP = {
             "Enemy 1": (ENEMY_SPACE_SHIP1, BLUE_LASER),
             "Enemy 2": (ENEMY_SPACE_SHIP2, BLUE_LASER),
             "Enemy 3": (ENEMY_SPACE_SHIP3, BLUE_LASER),
@@ -140,8 +143,8 @@ class Enemy(Ship):
             }
     def __init__(self, x, y, color, health=100, damage=10):
         super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+        self.ship_img, self.laser_img = self.ENEMY_MAP[color]
+        self.mask = pygame.mask.from_surface(self.ship_img)
     
     def move(self, movemoment):
         self.y += movemoment
@@ -154,9 +157,8 @@ class Enemy(Ship):
 
 
 
-
 class Enemy2(Ship):
-    COLOR_MAP = {
+    ENEMY_MAP = {
             "Enemy 1": (ENEMY_SPACE_SHIP1, GREEN_LASER),
             "Enemy 2": (ENEMY_SPACE_SHIP2, GREEN_LASER),
             "Enemy 3": (ENEMY_SPACE_SHIP3, GREEN_LASER),
@@ -168,8 +170,8 @@ class Enemy2(Ship):
             }
     def __init__(self, x, y, color, health=100, damage=18):
         super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+        self.ship_img, self.laser_img = self.ENEMY_MAP[color]
+        self.mask = pygame.mask.from_surface(self.ship_img)
     
     def move(self, movemoment):
         self.y += movemoment
