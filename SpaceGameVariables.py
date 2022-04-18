@@ -3,9 +3,11 @@ import os
 from pygame.locals import *
 from PlayerShip import *
 
+
 WHITE = (255, 255, 255)
 
 pygame.font.init()
+
 
 WIDTH = 1200
 HEIGHT = 750
@@ -19,5 +21,7 @@ TITLE = pygame.display.set_caption("Destruction-Of-Void")
 ICON = pygame.display.set_icon(pygame.image.load(os.path.join("Images", "void.jpg")))
 
 BG = pygame.transform.scale(pygame.image.load(os.path.join("Images", "space_background.jpg" )), (WIDTH, HEIGHT))
+
+
 
 
