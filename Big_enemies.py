@@ -1,11 +1,8 @@
 import pygame
-import os
 from pygame.locals import * 
 from Enemies import *
 from SpaceGameVariables import *
 from Lasers_EnergyBalls import *
-
-
 
 
 WIDTH = 1200
@@ -19,11 +16,9 @@ class Laser:
         self.img = img
         self.mask = pygame.mask.from_surface(self.img)
 
-    
     def draw(self, window):
         window.blit(self.img, (self.x, self.y))
 
-    
     def move(self, movement):
         self.y += movement
 
@@ -42,10 +37,8 @@ class Laser2:
         self.img = img
         self.mask = pygame.mask.from_surface(self.img)
 
-    
     def draw(self, window):
         window.blit(self.img, (self.x, self.y))
-
     
     def move(self, movement):
         self.y += movement
@@ -65,11 +58,9 @@ class Laser3:
         self.img = img
         self.mask = pygame.mask.from_surface(self.img)
 
-    
     def draw(self, window):
         window.blit(self.img, (self.x, self.y))
 
-    
     def move(self, movement):
         self.y += movement
 
@@ -78,6 +69,7 @@ class Laser3:
 
     def collision(self, hit):
         return collide(self, hit)
+
 
 
 class BigEnemies1:
@@ -108,7 +100,6 @@ class BigEnemies1:
                 Object.health -= self.damage
                 self.lasers.remove(laser)
 
-
     def get_width(self):
         return self.ship_img.get_width()
 
@@ -126,7 +117,6 @@ class BigEnemies1:
             self.laser_countdown = 0
         elif self.laser_countdown > 0:
             self.laser_countdown += 1
-
 
 
 
@@ -157,7 +147,6 @@ class BigEnemies2:
             elif laser.collision(Object):
                 Object.health -= self.damage
                 self.lasers.remove(laser)
-
 
     def get_width(self):
         return self.ship_img.get_width()
@@ -207,7 +196,6 @@ class BigEnemies3:
                 Object.health -= self.damage
                 self.lasers.remove(laser)
 
-
     def get_width(self):
         return self.ship_img.get_width()
 
@@ -225,6 +213,7 @@ class BigEnemies3:
             self.laser_countdown = 0
         elif self.laser_countdown > 0:
             self.laser_countdown += 1
+
 
 
 class BigEnemies4:
@@ -254,7 +243,6 @@ class BigEnemies4:
             elif laser.collision(Object):
                 Object.health -= self.damage
                 self.lasers.remove(laser)
-
 
     def get_width(self):
         return self.ship_img.get_width()
@@ -304,7 +292,6 @@ class BigEnemies5:
                 Object.health -= self.damage
                 self.lasers.remove(laser)
 
-
     def get_width(self):
         return self.ship_img.get_width()
 
@@ -322,7 +309,6 @@ class BigEnemies5:
             self.laser_countdown = 0
         elif self.laser_countdown > 0:
             self.laser_countdown += 1
-
 
 
 
@@ -354,7 +340,6 @@ class BigEnemies6:
                 Object.health -= self.damage
                 self.lasers.remove(laser)
 
-
     def get_width(self):
         return self.ship_img.get_width()
 
@@ -374,15 +359,16 @@ class BigEnemies6:
             self.laser_countdown += 1
 
 
+
 class BigEnemy1(BigEnemies1):
 
-    COLOR_MAP = {
+    ENEMY_MAP = {
             "Big_Enemy": (BIG_ENEMY1, ENERGY_STAR_BALL, ENERGY_STAR_BALL, ENERGY_STAR_BALL),
             }
     def __init__(self, x, y, color, health=100, damage=55):
         super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img, self.laser_img2, self.laser_img3 = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+        self.ship_img, self.laser_img, self.laser_img2, self.laser_img3 = self.ENEMY_MAP[color]
+        self.mask = pygame.mask.from_surface(self.ship_img)
     
     def move(self, movemoment):
         self.y += movemoment
@@ -397,15 +383,17 @@ class BigEnemy1(BigEnemies1):
             self.lasers.append(laser3)
             self.laser_countdown = 1
 
+
+
 class BigEnemy2(BigEnemies2):
 
-    COLOR_MAP = {
+    ENEMY_MAP = {
             "Big_Enemy": (BIG_ENEMY2, BLUE_ENERGY_LASER),
             }
     def __init__(self, x, y, color, health=100, damage=60):
         super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+        self.ship_img, self.laser_img = self.ENEMY_MAP[color]
+        self.mask = pygame.mask.from_surface(self.ship_img)
     
     def move(self, movemoment):
         self.y += movemoment
@@ -420,13 +408,13 @@ class BigEnemy2(BigEnemies2):
 
 class BigEnemy3(BigEnemies3):
 
-    COLOR_MAP = {
-            "Big_Enemy": (BIG_ENEMY3, GOLDEN_LASER_MISSLE),
+    ENEMY_MAP = {
+            "Big_Enemy": (BIG_ENEMY3, GOLDEN_LASER_MISSILE),
             }
     def __init__(self, x, y, color, health=100, damage=75):
         super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+        self.ship_img, self.laser_img = self.ENEMY_MAP[color]
+        self.mask = pygame.mask.from_surface(self.ship_img)
     
     def move(self, movemoment):
         self.y += movemoment
@@ -439,16 +427,15 @@ class BigEnemy3(BigEnemies3):
 
 
 
-
 class BigEnemy4(BigEnemies4):
 
-    COLOR_MAP = {
+    ENEMY_MAP = {
             "Big_Enemy": (BIG_ENEMY4, PURPLE_ENERGY_BALL),
             }
     def __init__(self, x, y, color, health=100, damage=85):
         super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+        self.ship_img, self.laser_img = self.ENEMY_MAP[color]
+        self.mask = pygame.mask.from_surface(self.ship_img)
     
     def move(self, movemoment):
         self.y += movemoment
@@ -463,13 +450,13 @@ class BigEnemy4(BigEnemies4):
 
 class BigEnemy5(BigEnemies5):
 
-    COLOR_MAP = {
+    ENEMY_MAP = {
             "Big_Enemy": (BIG_ENEMY5, BLUE_ENERGY_BALL),
             }
     def __init__(self, x, y, color, health=100, damage=79):
         super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+        self.ship_img, self.laser_img = self.ENEMY_MAP[color]
+        self.mask = pygame.mask.from_surface(self.ship_img)
     
     def move(self, movemoment):
         self.y += movemoment
@@ -484,13 +471,13 @@ class BigEnemy5(BigEnemies5):
 
 class BigEnemy6(BigEnemies6):
 
-    COLOR_MAP = {
+    ENEMY_MAP = {
             "Big_Enemy": (BIG_ENEMY6, BLUE_ENERGY_LASER),
             }
     def __init__(self, x, y, color, health=100, damage=81):
         super().__init__(x, y, health, damage)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self. mask = pygame.mask.from_surface(self.ship_img)
+        self.ship_img, self.laser_img = self.ENEMY_MAP[color]
+        self.mask = pygame.mask.from_surface(self.ship_img)
     
     def move(self, movemoment):
         self.y += movemoment
