@@ -4,7 +4,6 @@ from pygame.locals import *
 from SpaceGameVariables import *
 
 
-
 ENEMY_SPACE_SHIP1 = pygame.image.load(os.path.join("Images", "Enemies", "enemy_ship_1.png" ))
 ENEMY_SPACE_SHIP2 = pygame.image.load(os.path.join("Images","Enemies", "enemy_ship_2.png" ))
 ENEMY_SPACE_SHIP3 = pygame.image.load(os.path.join("Images", "Enemies", "enemy_ship_3.png" ))
@@ -15,16 +14,14 @@ ENEMY_SPACE_SHIP7 = pygame.image.load(os.path.join("Images", "Enemies", "enemy_s
 ENEMY_SPACE_SHIP8 = pygame.image.load(os.path.join("Images", "Enemies", "enemy_ship_8.png" ))
 
 
-# player player
 
-SPEICAL_SHIP1 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy.png" ))
-SPEICAL_SHIP2 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy2.png" ))
-SPEICAL_SHIP3 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy3.png" ))
-SPEICAL_SHIP4 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy4.png" ))
-SPEICAL_SHIP5 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy5.png" ))
-SPEICAL_SHIP6 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy6.png" ))
-SPEICAL_SHIP7 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy7.png" ))
-
+SPECIAL_SHIP1 = pygame.image.load(os.path.join("Images", "Enemies", "special_enemy.png" ))
+SPECIAL_SHIP2 = pygame.image.load(os.path.join("Images", "Enemies", "special_enemy2.png" ))
+SPECIAL_SHIP3 = pygame.image.load(os.path.join("Images", "Enemies", "special_enemy3.png" ))
+SPECIAL_SHIP4 = pygame.image.load(os.path.join("Images", "Enemies", "special_enemy4.png" ))
+SPECIAL_SHIP5 = pygame.image.load(os.path.join("Images", "Enemies", "special_enemy5.png" ))
+SPECIAL_SHIP6 = pygame.image.load(os.path.join("Images", "Enemies", "special_enemy6.png" ))
+SPECIAL_SHIP7 = pygame.image.load(os.path.join("Images", "Enemies", "special_enemy7.png" ))
 
 
 
@@ -36,7 +33,11 @@ BIG_ENEMY5 =  pygame.image.load(os.path.join("Images", "Enemies", "Big_enemy5.pn
 BIG_ENEMY6 =  pygame.image.load(os.path.join("Images", "Enemies", "Big_enemy6.png" ))
 
 
+
 MEGA_ENEMY1 = pygame.image.load(os.path.join("Images", "Enemies", "Mega_enemy.png" ))
 MEGA_ENEMY2 = pygame.image.load(os.path.join("Images", "Enemies", "Mega_enemy2.png "))
 MEGA_ENEMY3 = pygame.image.load(os.path.join("Images", "Enemies", "Mega_enemy3.png "))
 MEGA_ENEMY4 = pygame.image.load(os.path.join("Images", "Enemies", "Mega_enemy4.png "))
+
+
+
