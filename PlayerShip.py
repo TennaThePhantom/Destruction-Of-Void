@@ -8,6 +8,9 @@ from Lasers_EnergyBalls import *
 WIDTH = 1200
 HEIGHT = 750
 
+USER_SPACE_SHIP = pygame.image.load(os.path.join("Images", "space_ship.png" ))
+USER_SPACE_SHIP2 = pygame.image.load(os.path.join("Images", "space_ship2.png" ))
+USER_SPACE_SHIP3 = pygame.image.load(os.path.join("Images", "space_ship3.png" ))
 
 class Laser:
     def __init__(self, x, y, img):

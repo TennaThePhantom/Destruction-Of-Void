@@ -284,7 +284,7 @@ class Mega1(MegaEnemies1):
     COLOR_MAP = {
             "Mega_Enemy": (MEGA_ENEMY1, PURPLE_FLAME_ENERGY_BALL),
             }
-    def __init__(self, x, y, color, health=100, damage=110):
+    def __init__(self, x, y, color, health=100, damage=160):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)
@@ -304,7 +304,7 @@ class Mega2(MegaEnemies2):
     COLOR_MAP = {
             "Mega_Enemy": (MEGA_ENEMY2, GOLD_ENERGY_BALL),
             }
-    def __init__(self, x, y, color, health=100, damage=120):
+    def __init__(self, x, y, color, health=100, damage=200):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)
@@ -324,7 +324,7 @@ class Mega3(MegaEnemies3):
     COLOR_MAP = {
             "Mega_Enemy": (MEGA_ENEMY3, SPARKING_ENERGY_BALL, SPARKING_ENERGY_BALL, SPARKING_ENERGY_BALL),
             }
-    def __init__(self, x, y, color, health=100, damage=120):
+    def __init__(self, x, y, color, health=100, damage=150):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img, self.laser_img2, self.laser_img3 = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)
@@ -348,7 +348,7 @@ class Mega4(MegaEnemies4):
     COLOR_MAP = {
             "Mega_Enemy": (MEGA_ENEMY4, DARKBLUE_LIGHT_LASER, DARKBLUE_LIGHT_LASER),
             }
-    def __init__(self, x, y, color, health=100, damage=120):
+    def __init__(self, x, y, color, health=100, damage=180):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img, self.laser_img2 = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)

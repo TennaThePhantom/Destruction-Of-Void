@@ -379,7 +379,7 @@ class BigEnemy1(BigEnemies1):
     COLOR_MAP = {
             "Big_Enemy": (BIG_ENEMY1, ENERGY_STAR_BALL, ENERGY_STAR_BALL, ENERGY_STAR_BALL),
             }
-    def __init__(self, x, y, color, health=100, damage=60):
+    def __init__(self, x, y, color, health=100, damage=55):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img, self.laser_img2, self.laser_img3 = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)
@@ -423,7 +423,7 @@ class BigEnemy3(BigEnemies3):
     COLOR_MAP = {
             "Big_Enemy": (BIG_ENEMY3, GOLDEN_LASER_MISSLE),
             }
-    def __init__(self, x, y, color, health=100, damage=65):
+    def __init__(self, x, y, color, health=100, damage=75):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)
@@ -445,7 +445,7 @@ class BigEnemy4(BigEnemies4):
     COLOR_MAP = {
             "Big_Enemy": (BIG_ENEMY4, PURPLE_ENERGY_BALL),
             }
-    def __init__(self, x, y, color, health=100, damage=80):
+    def __init__(self, x, y, color, health=100, damage=85):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)
@@ -466,7 +466,7 @@ class BigEnemy5(BigEnemies5):
     COLOR_MAP = {
             "Big_Enemy": (BIG_ENEMY5, BLUE_ENERGY_BALL),
             }
-    def __init__(self, x, y, color, health=100, damage=80):
+    def __init__(self, x, y, color, health=100, damage=79):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)
@@ -487,7 +487,7 @@ class BigEnemy6(BigEnemies6):
     COLOR_MAP = {
             "Big_Enemy": (BIG_ENEMY6, BLUE_ENERGY_LASER),
             }
-    def __init__(self, x, y, color, health=100, damage=80):
+    def __init__(self, x, y, color, health=100, damage=81):
         super().__init__(x, y, health, damage)
         self.ship_img, self.laser_img = self.COLOR_MAP[color]
         self. mask = pygame.mask.from_surface(self.ship_img)

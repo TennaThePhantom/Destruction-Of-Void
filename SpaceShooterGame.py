@@ -94,11 +94,13 @@ def player_controls():
 
 def StartGame():
     global enemies
+    global movement
+    global Guns_movement
     game_over = False
     start_game = True
     lost_count = 0
     FPS = 60
-    level = 0
+    level = 7
 
     Clock = pygame.time.Clock()
 
@@ -140,15 +142,62 @@ def StartGame():
             if lost_count > FPS * 3:
                 start_game = False
             else:
+                level = 0
                 continue
             
         player_controls()
     
         if len(enemies) == 0:
             level += 1
-        if level == 5:
-            player.health = 600
+            if level == 5:
+                player.health += 150
+                movement = 5.6
+                Guns_movement = 4.1
+                player.COOLDOWN = 28
+            if level == 8:
+                player.laser_img = RED_lASER
+            if level == 10:
+                player.health += 200
+                player.max_health += 400
+                movement = 5.7
+                Guns_movement = 4.4
+                player.COOLDOWN = 26
+                player.ship_img = USER_SPACE_SHIP2
+            if level == 13:
+                player.health += 250
+                movement = 5.8
+                Guns_movement = 4.5
+            if level == 15:
+                player.laser_img = BLUE_AND_DARKBLUE_lASER
+                player.health += 150
+            if level == 17:
+                player.health = 900
+                player.max_health = 900
+                movement = 5.9
+                Guns_movement = 4.6
+            if level == 20:
+                movement = 5.8
+                Guns_movement = 4.5
+                player.COOLDOWN = 21
+                player.health + 175
+                player.max_health + 200
+                player.ship_img = USER_SPACE_SHIP3
+            if level == 22:
+                player.laser_img = RED_ENERGY_BLAST
+            if level == 23:
+                movement = 6
+                Guns_movement = 4.8
+                player.COOLDOWN = 18
+            if level == 24: 
+                player.health = 1150
+                player.max_health = 1150
+            if level == 25:
+                movement = 6.2
+                Guns_movement = 5
+                player.COOLDOWN = 15
             
+
+
 
         if level == 0:
             for enemy in enemies:

@@ -16,7 +16,6 @@ ENEMY_SPACE_SHIP8 = pygame.image.load(os.path.join("Images", "Enemies", "enemy_s
 
 
 # player player
-USER_SPACE_SHIP = pygame.image.load(os.path.join("Images", "space_ship.png" ))
 
 SPEICAL_SHIP1 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy.png" ))
 SPEICAL_SHIP2 = pygame.image.load(os.path.join("Images", "Enemies", "speical_enemy2.png" ))
