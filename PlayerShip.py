@@ -8,9 +8,12 @@ from Lasers_EnergyBalls import *
 WIDTH = 1200
 HEIGHT = 750
 
+
 USER_SPACE_SHIP = pygame.image.load(os.path.join("Images", "space_ship.png" ))
 USER_SPACE_SHIP2 = pygame.image.load(os.path.join("Images", "space_ship2.png" ))
 USER_SPACE_SHIP3 = pygame.image.load(os.path.join("Images", "space_ship3.png" ))
+
+
 
 class Laser:
     def __init__(self, x, y, img):
@@ -32,6 +35,7 @@ class Laser:
 
     def collision(self, hit):
         return collide(self, hit)
+
 
 
 class Ship:
@@ -80,6 +84,8 @@ class Ship:
         elif self.laser_countdown > 0:
             self.laser_countdown += 1
 
+
+
 class Player(Ship):
     def __init__(self, x, y, health=250):
         super().__init__(x, y, health)
@@ -108,6 +114,7 @@ class Player(Ship):
     def healthbar(self, window):
         pygame.draw.rect(window, (255, 0, 0), (self.x, self.y + self.ship_img.get_height() + 10, self.ship_img.get_width(), 10))
         pygame.draw.rect(window, (0,255,0), (self.x, self.y + self.ship_img.get_height() + 10, self.ship_img.get_width() * (self.health/self.max_health), 10))
+
 
 
 def collide(object1, object2):
