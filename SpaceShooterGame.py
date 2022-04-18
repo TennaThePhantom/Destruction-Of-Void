@@ -11,7 +11,6 @@ pygame.font.init()
 MUSIC = pygame.mixer.music.load('SpaceShootermusic.ogg')
 
 
-
 def gamelevels(level):
 
     level1(level)
@@ -75,9 +74,6 @@ def gamelevels(level):
     level30(level)
 
 
-
-
-
 def player_controls():
     global enemies
     global Guns_movement
@@ -97,7 +93,7 @@ def player_controls():
     player.move_lasers(-Guns_movement, enemies)
 
 
-def StartGame():
+def start_game():
     global enemies
     global movement
     global Guns_movement
@@ -108,8 +104,8 @@ def StartGame():
     won_count = 0
     FPS = 60
     level = 0
-    pygame.mixer.music.play(-1)
 
+    pygame.mixer.music.play(-1)
 
     Clock = pygame.time.Clock()
 
@@ -117,17 +113,15 @@ def StartGame():
     def redraw_window():
         SCREEN.blit(BG, (0, 0))
 
-        font = pygame.font.SysFont("comicsans", 50)
+        level_font = pygame.font.SysFont("comicsans", 50)
         game_over_font = pygame.font.SysFont("Comicsans", 60)
         won_game_font = pygame.font.SysFont("Comicsans", 55)
 
-
-        level_label = font.render(f"Level: {level}", 1, (WHITE))
+        level_label = level_font.render(f"Level: {level}", 1, (WHITE))
 
         SCREEN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
 
         player.draw(SCREEN)
-
 
         for enemy in enemies:
             enemy.draw(SCREEN)
@@ -137,13 +131,12 @@ def StartGame():
             SCREEN.blit(game_over_text, (WIDTH / 2 - level_label.get_width() / 2, 350))
 
         if won_game == True:
-            won_game_text = won_game_font.render("You survived all 30 waves congratulations !!", 1, WHITE)
+            won_game_text = won_game_font.render("You survived all 30 waves congratulations!!", 1, WHITE)
             SCREEN.blit(won_game_text, (WIDTH / 2 - level_label.get_width() / 2 - 450, 350))
 
         pygame.display.update()
 
 
-    
     while start_game == True:
         Clock.tick(FPS)
         redraw_window()
@@ -174,9 +167,9 @@ def StartGame():
             else:
                 continue
 
-
         player_controls()
-    
+
+        """The ship upgrades"""
         if len(enemies) == 0:
             level += 1
             if level == 1:
@@ -210,7 +203,6 @@ def StartGame():
                 player.laser_img = BLUE_AND_DARKBLUE_lASER
                 player.health += 150
                 player.max_health += 150
-
             if level == 17:
                 player.health = 900
                 player.max_health = 900
@@ -239,26 +231,20 @@ def StartGame():
             if level == 27:
                 player.health += 100
                 player.max_health += 100
-            
 
-
-
-        if level == 0:
+        if level == 0: # removes all the previous enemies and lasers that spawn
             for enemy in enemies:
                 enemies.remove(enemy)
             for lasers in player.lasers:
                 player.lasers.remove(lasers)
         gamelevels(level)
 
+        """basically resets everything when you click on the close window """
         for window in pygame.event.get():
             if window.type == pygame.QUIT:
                 start_game = False
                 level = 0
                 pygame.mixer.music.stop()
-    
-
-
-
 
 
 def main_menu():
@@ -266,6 +252,7 @@ def main_menu():
     goal_font =  pygame.font.SysFont("comicsans", 50)
     waves_harder_font = pygame.font.SysFont("comicsans", 50)
     ship_upgrades_font = pygame.font.SysFont("comicsans", 50)
+    controls_font =  pygame.font.SysFont("comicsans", 45)
     run_menu = True
     while run_menu == True:
         SCREEN.blit(BG, (0, 0))
@@ -276,20 +263,23 @@ def main_menu():
         SCREEN.blit(waves_text, (WIDTH / 2 - waves_text.get_width()/2, 150))
 
         upgrades_text = ship_upgrades_font.render("Your ship will get upgrades as you play", 1, WHITE)
-        SCREEN.blit(upgrades_text, (WIDTH / 2 - upgrades_text.get_width()/2, 259))
+        SCREEN.blit(upgrades_text, (WIDTH / 2 - upgrades_text.get_width()/2, 250))
+
+        controls_text = controls_font.render("Use arrow keys or WASD to move, Spacebar is to shoot", 1, WHITE)
+        SCREEN.blit(controls_text, (WIDTH / 2 - controls_text.get_width()/2, 350))
 
         title_text = title_font.render("Press the mouse to begin... ", 1, WHITE)
-        SCREEN.blit(title_text, (WIDTH / 2 - title_text.get_width()/2, 350))
-
+        SCREEN.blit(title_text, (WIDTH / 2 - title_text.get_width()/2, 450))
 
         pygame.display.update()
         for window in pygame.event.get():
             if window.type == pygame.QUIT:
                 run_menu = False
             if window.type == pygame.MOUSEBUTTONDOWN:
-                StartGame()
+                start_game()
     pygame.quit()
 
 
-
 main_menu()
+
+
